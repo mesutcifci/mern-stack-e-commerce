@@ -31,14 +31,13 @@ export function Navigation() {
   useEffect(() => {
     const fetchNavigation = async () => {
       try {
-        const data = await fetchApi("/navigation/navigation-menu");
+        const response = await fetchApi("/navigation/navigation-menu");
 
-        if (data.data.categories?.length > 0) {
-          setCategories(data.data.categories);
-          console.log("Fetched categories:", data.data.categories);
+        if (response.data.categories?.length > 0) {
+          setCategories(response.data.categories);
         }
 
-        // if (data.data.extraItems?.length > 0) {
+        // if (response.data.extraItems?.length > 0) {
         //   setExtraItems(data.data.extraItems);
         // }
       } catch (error) {
