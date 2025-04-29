@@ -7,6 +7,7 @@ import addressRouter from './routes/addressRoutes';
 import categoryRouter from './routes/categoryRoutes';
 import navigationRouter from './routes/navigationMenuRoutes';
 import basketRouter from './routes/basketRoutes';
+import widgetRouter from './routes/widgetRoutes';
 
 import AppError from './helpers/appError';
 import { errorHandler } from './controllers/errorController';
@@ -95,6 +96,7 @@ app.use('/api/v1/address', protect, addressRouter);
 app.use('/api/v1/category', categoryRouter);
 app.use('/api/v1/navigation', navigationRouter);
 app.use('/api/v1/basket', protect, basketRouter);
+app.use('/api/v1/widget', widgetRouter);
 
 // Handle routes that are not exist
 app.use('*', (req, res, next) => {
