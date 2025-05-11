@@ -3,7 +3,7 @@ import catchAsyncErrors from '../helpers/catchAsyncErrors';
 import AppError from '../helpers/appError';
 import ComponentBase, {
 	SliderComponent,
-	ProductComponent,
+	ProductSlider,
 	CampaignBand,
 } from '../models/componentModel';
 
@@ -12,7 +12,7 @@ import type { Model, UpdateQuery } from 'mongoose';
 // Component type mapping for dynamic model selection
 const componentModels: Record<string, Model<any>> = {
 	'slider-component': SliderComponent,
-	'product-component': ProductComponent,
+	'product-slider': ProductSlider,
 	'campaign-band': CampaignBand,
 };
 

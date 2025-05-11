@@ -46,11 +46,11 @@ export interface ISliderComponent extends IComponentBase {
 	autoplay: boolean;
 }
 
-export interface IProductComponent extends IComponentBase {
-	type: 'product-component';
+export interface IProductSlider extends IComponentBase {
+	type: 'product-slider';
 	products: Types.ObjectId[];
 }
 
-export type IComponent = ISliderComponent | IProductComponent;
+export type IComponent = ISliderComponent | IProductSlider;
 
 export type { IComponentMedia, IComponentPage, ISliderItem };

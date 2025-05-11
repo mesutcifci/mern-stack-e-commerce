@@ -2,7 +2,7 @@ import mongoose, { Schema, model } from 'mongoose';
 import {
 	type IComponent,
 	type ISliderComponent,
-	type IProductComponent,
+	type IProductSlider,
 	type ICampaignBand,
 } from '../types/component';
 import slugify from 'slugify';
@@ -57,7 +57,7 @@ const baseComponentSchema = new Schema(
 		type: {
 			type: String,
 			required: true,
-			enum: ['slider-component', 'product-component', 'campaign-band'],
+			enum: ['slider-component', 'product-slider', 'campaign-band'],
 		},
 	},
 	{
@@ -127,8 +127,8 @@ const SliderComponent = ComponentBase.discriminator<ISliderComponent>(
 	})
 );
 
-const ProductComponent = ComponentBase.discriminator<IProductComponent>(
-	'product-component',
+const ProductSlider = ComponentBase.discriminator<IProductSlider>(
+	'product-slider',
 	new Schema({
 		products: {
 			type: [mongoose.Schema.Types.ObjectId],
@@ -138,11 +138,11 @@ const ProductComponent = ComponentBase.discriminator<IProductComponent>(
 				validator: function (products: unknown[]) {
 					return Array.isArray(products) && products.length > 0;
 				},
-				message: 'Product component must have at least one product',
+				message: 'Product slider component must have at least one product',
 			},
 		},
 	})
 );
 
-export { SliderComponent, ProductComponent, CampaignBand };
+export { SliderComponent, ProductSlider, CampaignBand };
 export default ComponentBase;
