@@ -4,6 +4,7 @@ import AppError from '../helpers/appError';
 import ComponentBase, {
 	SliderComponent,
 	ProductComponent,
+	CampaignBand,
 } from '../models/componentModel';
 
 import type { Model, UpdateQuery } from 'mongoose';
@@ -12,7 +13,7 @@ import type { Model, UpdateQuery } from 'mongoose';
 const componentModels: Record<string, Model<any>> = {
 	'slider-component': SliderComponent,
 	'product-component': ProductComponent,
-	// Add new component types here in the future
+	'campaign-band': CampaignBand,
 };
 
 // Get a component by its slug

@@ -3,10 +3,10 @@ import {
 	type IComponent,
 	type ISliderComponent,
 	type IProductComponent,
+	type ICampaignBand,
 } from '../types/component';
 import slugify from 'slugify';
 
-// Component page schema
 const componentPageSchema = new Schema({
 	name: {
 		type: String,
@@ -18,7 +18,6 @@ const componentPageSchema = new Schema({
 	},
 });
 
-// Media schema for slider items
 const componentMediaSchema = new Schema({
 	mobileMedia: {
 		type: String,
@@ -30,7 +29,12 @@ const componentMediaSchema = new Schema({
 	},
 });
 
-// Base component schema (common fields)
+const campaignBandItemSchema = new Schema({
+	text: {
+		type: String,
+		required: true,
+	},
+});
 const baseComponentSchema = new Schema(
 	{
 		name: {
@@ -50,11 +54,10 @@ const baseComponentSchema = new Schema(
 			type: [componentPageSchema],
 			required: true,
 		},
-		// This is the discriminator key
 		type: {
 			type: String,
 			required: true,
-			enum: ['slider-component', 'product-component'],
+			enum: ['slider-component', 'product-component', 'campaign-band'],
 		},
 	},
 	{
@@ -62,7 +65,7 @@ const baseComponentSchema = new Schema(
 		timestamps: true,
 		toJSON: { virtuals: true },
 		toObject: { virtuals: true },
-		discriminatorKey: 'type', // Important: declares the field that will differentiate between types
+		discriminatorKey: 'type',
 	}
 );
 
@@ -78,10 +81,18 @@ baseComponentSchema.pre(/^find/, function (next) {
 	next();
 });
 
-// Create the base model
 const ComponentBase = model<IComponent>('Component', baseComponentSchema);
 
-// Slider component schema using discriminator
+const CampaignBand = ComponentBase.discriminator<ICampaignBand>(
+	'campaign-band',
+	new Schema({
+		items: {
+			type: [campaignBandItemSchema],
+			required: true,
+		},
+	})
+);
+
 const SliderComponent = ComponentBase.discriminator<ISliderComponent>(
 	'slider-component',
 	new Schema({
@@ -116,7 +127,6 @@ const SliderComponent = ComponentBase.discriminator<ISliderComponent>(
 	})
 );
 
-// Product component schema using discriminator
 const ProductComponent = ComponentBase.discriminator<IProductComponent>(
 	'product-component',
 	new Schema({
@@ -134,5 +144,5 @@ const ProductComponent = ComponentBase.discriminator<IProductComponent>(
 	})
 );
 
-export { SliderComponent, ProductComponent };
+export { SliderComponent, ProductComponent, CampaignBand };
 export default ComponentBase;
