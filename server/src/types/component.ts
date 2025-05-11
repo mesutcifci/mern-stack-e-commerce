@@ -22,6 +22,15 @@ interface ICampaignBandItem {
 	backgroundColor: string;
 }
 
+interface IimageGridItem {
+	image: string;
+	title: string;
+	subtitle: string;
+	textColor: string;
+	link: string;
+	type: 'full' | 'half';
+}
+
 interface IComponentPage {
 	name: string;
 	order: number;
@@ -51,6 +60,17 @@ export interface IProductSlider extends IComponentBase {
 	products: Types.ObjectId[];
 }
 
-export type IComponent = ISliderComponent | IProductSlider;
+export interface IimageGrid extends IComponentBase {
+	type: 'image-grid';
+	items: IimageGridItem[];
+}
 
-export type { IComponentMedia, IComponentPage, ISliderItem };
+export type IComponent = ISliderComponent | IProductSlider | IimageGrid;
+
+export type {
+	IComponentMedia,
+	IComponentPage,
+	ISliderItem,
+	IimageGridItem,
+	ICampaignBandItem,
+};

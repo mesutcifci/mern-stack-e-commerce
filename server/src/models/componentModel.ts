@@ -4,6 +4,7 @@ import {
 	type ISliderComponent,
 	type IProductSlider,
 	type ICampaignBand,
+	type IimageGrid,
 } from '../types/component';
 import slugify from 'slugify';
 
@@ -35,6 +36,35 @@ const campaignBandItemSchema = new Schema({
 		required: true,
 	},
 });
+
+const imageGridItemSchema = new Schema({
+	image: {
+		type: String,
+		required: true,
+	},
+	title: {
+		type: String,
+		required: true,
+	},
+	subtitle: {
+		type: String,
+		required: true,
+	},
+	textColor: {
+		type: String,
+		required: true,
+	},
+	link: {
+		type: String,
+		required: true,
+	},
+	type: {
+		type: String,
+		required: true,
+		enum: ['full', 'half'],
+	},
+});
+
 const baseComponentSchema = new Schema(
 	{
 		name: {
@@ -144,5 +174,15 @@ const ProductSlider = ComponentBase.discriminator<IProductSlider>(
 	})
 );
 
-export { SliderComponent, ProductSlider, CampaignBand };
+const ImageGrid = ComponentBase.discriminator<IimageGrid>(
+	'image-grid',
+	new Schema({
+		items: {
+			type: [imageGridItemSchema],
+			required: true,
+		},
+	})
+);
+
+export { SliderComponent, ProductSlider, CampaignBand, ImageGrid };
 export default ComponentBase;
