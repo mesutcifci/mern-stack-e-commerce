@@ -6,6 +6,7 @@ import ComponentBase, {
 	ProductSlider,
 	CampaignBand,
 	ImageGrid,
+	SingleImage,
 } from '../models/componentModel';
 
 import type { Model, UpdateQuery } from 'mongoose';
@@ -16,6 +17,7 @@ const componentModels: Record<string, Model<any>> = {
 	'product-slider': ProductSlider,
 	'campaign-band': CampaignBand,
 	'image-grid': ImageGrid,
+	'single-image': SingleImage,
 };
 
 // Get a component by its slug

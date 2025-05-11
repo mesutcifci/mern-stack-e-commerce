@@ -5,6 +5,7 @@ import {
 	type IProductSlider,
 	type ICampaignBand,
 	type IimageGrid,
+	type ISingleImage,
 } from '../types/component';
 import slugify from 'slugify';
 
@@ -184,5 +185,39 @@ const ImageGrid = ComponentBase.discriminator<IimageGrid>(
 	})
 );
 
-export { SliderComponent, ProductSlider, CampaignBand, ImageGrid };
+const SingleImage = ComponentBase.discriminator<ISingleImage>(
+	'single-image',
+	new Schema({
+		mobileImage: {
+			type: String,
+			required: true,
+		},
+		desktopImage: {
+			type: String,
+			required: true,
+		},
+		link: {
+			type: String,
+			required: true,
+		},
+		title: {
+			type: String,
+			required: true,
+		},
+		description: {
+			type: String,
+			required: true,
+		},
+		linkText: {
+			type: String,
+			required: true,
+		},
+		textColor: {
+			type: String,
+			required: true,
+		},
+	})
+);
+
+export { SliderComponent, ProductSlider, CampaignBand, ImageGrid, SingleImage };
 export default ComponentBase;

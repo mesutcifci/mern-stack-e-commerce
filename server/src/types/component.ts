@@ -65,7 +65,23 @@ export interface IimageGrid extends IComponentBase {
 	items: IimageGridItem[];
 }
 
-export type IComponent = ISliderComponent | IProductSlider | IimageGrid;
+export interface ISingleImage extends IComponentBase {
+	type: 'single-image';
+	mobileImage: string;
+	desktopImage: string;
+	link: string;
+	title: string;
+	description: string;
+	linkText: string;
+	textColor: string;
+}
+
+export type IComponent =
+	| ISliderComponent
+	| IProductSlider
+	| IimageGrid
+	| ISingleImage
+	| ICampaignBand;
 
 export type {
 	IComponentMedia,
