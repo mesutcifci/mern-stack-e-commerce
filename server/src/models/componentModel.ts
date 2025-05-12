@@ -7,6 +7,7 @@ import {
 	type IimageGrid,
 	type ISingleImage,
 	type INewsletter,
+	type IFeatureBar,
 } from '../types/component';
 import slugify from 'slugify';
 
@@ -64,6 +65,33 @@ const imageGridItemSchema = new Schema({
 		type: String,
 		required: true,
 		enum: ['full', 'half'],
+	},
+});
+
+const featureBarItemSchema = new Schema({
+	title: {
+		type: String,
+		required: true,
+	},
+	description: {
+		type: String,
+		required: true,
+	},
+	titleColor: {
+		type: String,
+		required: true,
+	},
+	descriptionColor: {
+		type: String,
+		required: true,
+	},
+	backgroundColor: {
+		type: String,
+		required: true,
+	},
+	icon: {
+		type: String,
+		required: true,
 	},
 });
 
@@ -260,6 +288,16 @@ const Newsletter = ComponentBase.discriminator<INewsletter>(
 	})
 );
 
+const FeatureBar = ComponentBase.discriminator<IFeatureBar>(
+	'feature-bar',
+	new Schema({
+		items: {
+			type: [featureBarItemSchema],
+			required: true,
+		},
+	})
+);
+
 export {
 	SliderComponent,
 	ProductSlider,
@@ -267,5 +305,6 @@ export {
 	ImageGrid,
 	SingleImage,
 	Newsletter,
+	FeatureBar,
 };
 export default ComponentBase;

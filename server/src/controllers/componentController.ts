@@ -8,6 +8,7 @@ import ComponentBase, {
 	ImageGrid,
 	SingleImage,
 	Newsletter,
+	FeatureBar,
 } from '../models/componentModel';
 
 import type { Model, UpdateQuery } from 'mongoose';
@@ -20,6 +21,7 @@ const componentModels: Record<string, Model<any>> = {
 	'image-grid': ImageGrid,
 	'single-image': SingleImage,
 	newsletter: Newsletter,
+	'feature-bar': FeatureBar,
 };
 
 // Get a component by its slug

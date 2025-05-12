@@ -31,6 +31,15 @@ interface IimageGridItem {
 	type: 'full' | 'half';
 }
 
+interface IFeatureBarItem {
+	title: string;
+	description: string;
+	titleColor: string;
+	descriptionColor: string;
+	backgroundColor: string;
+	icon: string;
+}
+
 interface IComponentPage {
 	name: string;
 	order: number;
@@ -86,6 +95,10 @@ export interface INewsletter extends IComponentBase {
 	mobileImage: string;
 	desktopImage: string;
 }
+export interface IFeatureBar extends IComponentBase {
+	type: 'feature-bar';
+	items: IFeatureBarItem[];
+}
 
 export type IComponent =
 	| ISliderComponent
@@ -93,7 +106,8 @@ export type IComponent =
 	| IimageGrid
 	| ISingleImage
 	| ICampaignBand
-	| INewsletter;
+	| INewsletter
+	| IFeatureBar;
 
 export type {
 	IComponentMedia,
@@ -101,4 +115,5 @@ export type {
 	ISliderItem,
 	IimageGridItem,
 	ICampaignBandItem,
+	IFeatureBarItem,
 };
