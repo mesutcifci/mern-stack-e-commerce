@@ -76,12 +76,24 @@ export interface ISingleImage extends IComponentBase {
 	textColor: string;
 }
 
+export interface INewsletter extends IComponentBase {
+	type: 'newsletter';
+	title: string;
+	buttonText: string;
+	textColor: string;
+	agreementText: string;
+	backgroundColor: string;
+	mobileImage: string;
+	desktopImage: string;
+}
+
 export type IComponent =
 	| ISliderComponent
 	| IProductSlider
 	| IimageGrid
 	| ISingleImage
-	| ICampaignBand;
+	| ICampaignBand
+	| INewsletter;
 
 export type {
 	IComponentMedia,

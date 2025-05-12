@@ -6,6 +6,7 @@ import {
 	type ICampaignBand,
 	type IimageGrid,
 	type ISingleImage,
+	type INewsletter,
 } from '../types/component';
 import slugify from 'slugify';
 
@@ -88,7 +89,13 @@ const baseComponentSchema = new Schema(
 		type: {
 			type: String,
 			required: true,
-			enum: ['slider-component', 'product-slider', 'campaign-band'],
+			enum: [
+				'slider-component',
+				'product-slider',
+				'campaign-band',
+				'single-image',
+				'newsletter',
+			],
 		},
 	},
 	{
@@ -219,5 +226,46 @@ const SingleImage = ComponentBase.discriminator<ISingleImage>(
 	})
 );
 
-export { SliderComponent, ProductSlider, CampaignBand, ImageGrid, SingleImage };
+const Newsletter = ComponentBase.discriminator<INewsletter>(
+	'newsletter',
+	new Schema({
+		title: {
+			type: String,
+			required: true,
+		},
+		buttonText: {
+			type: String,
+			required: true,
+		},
+		textColor: {
+			type: String,
+			required: true,
+		},
+		backgroundColor: {
+			type: String,
+			required: true,
+		},
+		mobileImage: {
+			type: String,
+			required: true,
+		},
+		desktopImage: {
+			type: String,
+			required: true,
+		},
+		agreementText: {
+			type: String,
+			required: true,
+		},
+	})
+);
+
+export {
+	SliderComponent,
+	ProductSlider,
+	CampaignBand,
+	ImageGrid,
+	SingleImage,
+	Newsletter,
+};
 export default ComponentBase;
