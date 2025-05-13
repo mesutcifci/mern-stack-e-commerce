@@ -40,6 +40,17 @@ interface IFeatureBarItem {
 	icon: string;
 }
 
+interface IFooterItem {
+	text: string;
+	link: string;
+	subItems: IFooterSubItem[];
+}
+
+interface IFooterSubItem {
+	text: string;
+	link: string;
+}
+
 interface IComponentPage {
 	name: string;
 	order: number;
@@ -98,6 +109,13 @@ export interface INewsletter extends IComponentBase {
 export interface IFeatureBar extends IComponentBase {
 	type: 'feature-bar';
 	items: IFeatureBarItem[];
+}
+
+export interface IFooter extends IComponentBase {
+	type: 'footer';
+	items: IFooterItem[];
+	backgroundColor: string;
+	textColor: string;
 }
 
 export type IComponent =

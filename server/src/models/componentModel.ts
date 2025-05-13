@@ -8,6 +8,7 @@ import {
 	type ISingleImage,
 	type INewsletter,
 	type IFeatureBar,
+	type IFooter,
 } from '../types/component';
 import slugify from 'slugify';
 
@@ -91,6 +92,32 @@ const featureBarItemSchema = new Schema({
 	},
 	icon: {
 		type: String,
+		required: true,
+	},
+});
+
+const footerSubItemSchema = new Schema({
+	text: {
+		type: String,
+		required: true,
+	},
+	link: {
+		type: String,
+		required: true,
+	},
+});
+
+const footerItemSchema = new Schema({
+	text: {
+		type: String,
+		required: true,
+	},
+	link: {
+		type: String,
+		required: true,
+	},
+	subItems: {
+		type: [footerSubItemSchema],
 		required: true,
 	},
 });
@@ -298,6 +325,24 @@ const FeatureBar = ComponentBase.discriminator<IFeatureBar>(
 	})
 );
 
+const Footer = ComponentBase.discriminator<IFooter>(
+	'footer',
+	new Schema({
+		items: {
+			type: [footerItemSchema],
+			required: true,
+		},
+		backgroundColor: {
+			type: String,
+			required: true,
+		},
+		textColor: {
+			type: String,
+			required: true,
+		},
+	})
+);
+
 export {
 	SliderComponent,
 	ProductSlider,
@@ -306,5 +351,6 @@ export {
 	SingleImage,
 	Newsletter,
 	FeatureBar,
+	Footer,
 };
 export default ComponentBase;
