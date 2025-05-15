@@ -96,7 +96,7 @@ app.use('/api/v1/address', protect, addressRouter);
 app.use('/api/v1/category', categoryRouter);
 app.use('/api/v1/navigation', navigationRouter);
 app.use('/api/v1/basket', protect, basketRouter);
-app.use('/api/v1/widget', componentRouter);
+app.use('/api/v1/components', componentRouter);
 
 // Handle routes that are not exist
 app.use('*', (req, res, next) => {

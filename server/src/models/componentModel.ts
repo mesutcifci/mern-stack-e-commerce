@@ -25,12 +25,26 @@ const componentPageSchema = new Schema({
 
 const componentMediaSchema = new Schema({
 	mobileMedia: {
-		type: String,
-		required: true,
+		type: {
+			type: String,
+			required: true,
+			enum: ['image', 'video'],
+		},
+		url: {
+			type: String,
+			required: true,
+		},
 	},
 	desktopMedia: {
-		type: String,
-		required: true,
+		type: {
+			type: String,
+			required: true,
+			enum: ['image', 'video'],
+		},
+		url: {
+			type: String,
+			required: true,
+		},
 	},
 });
 
@@ -132,14 +146,15 @@ const baseComponentSchema = new Schema(
 		slug: {
 			type: String,
 			unique: true,
+			required: [true, 'A component must have a slug'],
 		},
 		isActive: {
 			type: Boolean,
 			default: false,
+			required: [true, 'A component must have a isActive status'],
 		},
 		page: {
 			type: [componentPageSchema],
-			required: true,
 		},
 		type: {
 			type: String,

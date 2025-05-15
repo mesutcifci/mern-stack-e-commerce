@@ -5,7 +5,6 @@ import {
 	updateComponent,
 	getComponentsByPage,
 } from '../controllers/componentController';
-import { protect } from '../controllers/authController';
 
 const router = express.Router();
 
@@ -13,8 +12,6 @@ const router = express.Router();
 router.route('/:slug').get(getComponentBySlug);
 
 router.route('/page/:pageName').get(getComponentsByPage);
-
-router.use(protect);
 
 // TODO remove createComponent before production
 router.route('/').post(createComponent);

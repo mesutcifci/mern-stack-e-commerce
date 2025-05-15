@@ -1,8 +1,14 @@
 import type { Types } from 'mongoose';
 
 interface IComponentMedia {
-	mobileMedia: string;
-	desktopMedia: string;
+	mobileMedia: {
+		type: 'image' | 'video';
+		url: string;
+	};
+	desktopMedia: {
+		type: 'image' | 'video';
+		url: string;
+	};
 }
 
 interface ISliderItem {
