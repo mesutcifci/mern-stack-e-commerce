@@ -4,7 +4,7 @@ import AppError from '../helpers/appError';
 import ComponentBase, {
 	SliderComponent,
 	ProductSlider,
-	CampaignBand,
+	InfoBand,
 	ImageGrid,
 	SingleImage,
 	Newsletter,
@@ -18,7 +18,7 @@ import type { Model, UpdateQuery } from 'mongoose';
 const componentModels: Record<string, Model<any>> = {
 	'slider-component': SliderComponent,
 	'product-slider': ProductSlider,
-	'campaign-band': CampaignBand,
+	'info-band': InfoBand,
 	'image-grid': ImageGrid,
 	'single-image': SingleImage,
 	newsletter: Newsletter,

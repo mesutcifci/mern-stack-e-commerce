@@ -22,7 +22,7 @@ interface ISliderItem {
 	buttonTextColor?: string;
 }
 
-interface ICampaignBandItem {
+interface IinfoBandItem {
 	text: string;
 	textColor: string;
 	backgroundColor: string;
@@ -70,9 +70,9 @@ interface IComponentBase {
 	type: string;
 }
 
-export interface ICampaignBand extends IComponentBase {
-	type: 'campaign-band';
-	items: ICampaignBandItem[];
+export interface IinfoBand extends IComponentBase {
+	type: 'info-band';
+	items: IinfoBandItem[];
 	autoplay: boolean;
 }
 export interface ISliderComponent extends IComponentBase {
@@ -129,7 +129,7 @@ export type IComponent =
 	| IProductSlider
 	| IimageGrid
 	| ISingleImage
-	| ICampaignBand
+	| IinfoBand
 	| INewsletter
 	| IFeatureBar;
 
@@ -138,6 +138,6 @@ export type {
 	IComponentPage,
 	ISliderItem,
 	IimageGridItem,
-	ICampaignBandItem,
+	IinfoBandItem,
 	IFeatureBarItem,
 };

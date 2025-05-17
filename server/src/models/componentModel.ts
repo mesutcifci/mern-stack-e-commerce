@@ -3,14 +3,13 @@ import {
 	type IComponent,
 	type ISliderComponent,
 	type IProductSlider,
-	type ICampaignBand,
+	type IinfoBand,
 	type IimageGrid,
 	type ISingleImage,
 	type INewsletter,
 	type IFeatureBar,
 	type IFooter,
 } from '../types/component';
-import slugify from 'slugify';
 
 const componentPageSchema = new Schema({
 	name: {
@@ -162,7 +161,7 @@ const baseComponentSchema = new Schema(
 			enum: [
 				'slider-component',
 				'product-slider',
-				'campaign-band',
+				'info-band',
 				'single-image',
 				'newsletter',
 			],
@@ -177,11 +176,6 @@ const baseComponentSchema = new Schema(
 	}
 );
 
-// Generate slug from name before saving
-baseComponentSchema.pre('save', function () {
-	this.slug = slugify(this.name, { lower: true });
-});
-
 // Only return active components by default
 baseComponentSchema.pre(/^find/, function (next) {
 	// @ts-expect-error - This is a valid operation in mongoose but TypeScript doesn't recognize it
@@ -191,8 +185,8 @@ baseComponentSchema.pre(/^find/, function (next) {
 
 const ComponentBase = model<IComponent>('Component', baseComponentSchema);
 
-const CampaignBand = ComponentBase.discriminator<ICampaignBand>(
-	'campaign-band',
+const InfoBand = ComponentBase.discriminator<IinfoBand>(
+	'info-band',
 	new Schema({
 		items: {
 			type: [campaignBandItemSchema],
@@ -361,7 +355,7 @@ const Footer = ComponentBase.discriminator<IFooter>(
 export {
 	SliderComponent,
 	ProductSlider,
-	CampaignBand,
+	InfoBand,
 	ImageGrid,
 	SingleImage,
 	Newsletter,
