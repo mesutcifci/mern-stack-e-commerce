@@ -24,8 +24,9 @@ interface ISliderItem {
 
 interface IinfoBandItem {
 	text: string;
-	textColor: string;
-	backgroundColor: string;
+	textColor?: string;
+	backgroundColor?: string;
+	link?: string;
 }
 
 interface IimageGridItem {

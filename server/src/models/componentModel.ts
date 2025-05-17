@@ -47,13 +47,6 @@ const componentMediaSchema = new Schema({
 	},
 });
 
-const campaignBandItemSchema = new Schema({
-	text: {
-		type: String,
-		required: true,
-	},
-});
-
 const imageGridItemSchema = new Schema({
 	image: {
 		type: String,
@@ -79,6 +72,25 @@ const imageGridItemSchema = new Schema({
 		type: String,
 		required: true,
 		enum: ['full', 'half'],
+	},
+});
+
+const infoBandItemSchema = new Schema({
+	text: {
+		type: String,
+		required: true,
+	},
+	textColor: {
+		type: String,
+		default: '#000000',
+	},
+	backgroundColor: {
+		type: String,
+		default: '#ffffff',
+	},
+	link: {
+		type: String,
+		required: false,
 	},
 });
 
@@ -189,7 +201,7 @@ const InfoBand = ComponentBase.discriminator<IinfoBand>(
 	'info-band',
 	new Schema({
 		items: {
-			type: [campaignBandItemSchema],
+			type: [infoBandItemSchema],
 			required: true,
 		},
 	})
