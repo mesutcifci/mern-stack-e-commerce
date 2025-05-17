@@ -9,6 +9,7 @@ import {
 	type INewsletter,
 	type IFeatureBar,
 	type IFooter,
+	type IimageGridItem,
 } from '../types/component';
 
 const componentPageSchema = new Schema({
@@ -47,8 +48,12 @@ const componentMediaSchema = new Schema({
 	},
 });
 
-const imageGridItemSchema = new Schema({
-	image: {
+const imageGridItemSchema = new Schema<IimageGridItem>({
+	mobileImage: {
+		type: String,
+		required: true,
+	},
+	desktopImage: {
 		type: String,
 		required: true,
 	},

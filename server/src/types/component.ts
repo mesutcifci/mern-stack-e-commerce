@@ -30,7 +30,8 @@ interface IinfoBandItem {
 }
 
 interface IimageGridItem {
-	image: string;
+	mobileImage: string;
+	desktopImage: string;
 	title: string;
 	subtitle: string;
 	textColor: string;
