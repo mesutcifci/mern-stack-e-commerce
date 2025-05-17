@@ -17,7 +17,9 @@
     "framer-motion": "^11.15.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-redux": "^9.1.2"
+    "react-redux": "^9.1.2",
+    "react-router": "^7.6.0",
+    "swiper": "^11.2.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
