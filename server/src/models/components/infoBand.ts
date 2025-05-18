@@ -1,5 +1,5 @@
 import { Schema } from 'mongoose';
-import ComponentBase from '../componentModel';
+import Component from '../componentModel';
 import type { IinfoBand } from '../../types/component';
 
 const infoBandItemSchema = new Schema({
@@ -21,7 +21,7 @@ const infoBandItemSchema = new Schema({
 	},
 });
 
-export const InfoBand = ComponentBase.discriminator<IinfoBand>(
+export const InfoBand = Component.discriminator<IinfoBand>(
 	'info-band',
 	new Schema({
 		items: {

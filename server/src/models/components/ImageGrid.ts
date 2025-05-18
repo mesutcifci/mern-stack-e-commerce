@@ -1,5 +1,5 @@
 import { Schema } from 'mongoose';
-import ComponentBase from '../componentModel';
+import Component from '../componentModel';
 import type { IimageGrid, IimageGridItem } from '../../types/component';
 
 const imageGridItemSchema = new Schema<IimageGridItem>({
@@ -34,7 +34,7 @@ const imageGridItemSchema = new Schema<IimageGridItem>({
 	},
 });
 
-export const ImageGrid = ComponentBase.discriminator<IimageGrid>(
+export const ImageGrid = Component.discriminator<IimageGrid>(
 	'image-grid',
 	new Schema({
 		items: {

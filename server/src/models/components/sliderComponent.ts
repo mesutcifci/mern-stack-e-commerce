@@ -1,5 +1,5 @@
 import { Schema } from 'mongoose';
-import ComponentBase from '../componentModel';
+import Component from '../componentModel';
 import type { ISliderComponent, ISliderMedia } from '../../types/component';
 
 const sliderMediaSchema = new Schema<ISliderMedia>({
@@ -27,7 +27,7 @@ const sliderMediaSchema = new Schema<ISliderMedia>({
 	},
 });
 
-export const SliderComponent = ComponentBase.discriminator<ISliderComponent>(
+export const SliderComponent = Component.discriminator<ISliderComponent>(
 	'slider-component',
 	new Schema({
 		items: {

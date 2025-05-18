@@ -1,5 +1,5 @@
 import { Schema } from 'mongoose';
-import ComponentBase from '../componentModel';
+import Component from '../componentModel';
 import type { IFooter } from '../../types/component';
 
 const footerSubItemSchema = new Schema({
@@ -28,7 +28,7 @@ const footerItemSchema = new Schema({
 	},
 });
 
-export const Footer = ComponentBase.discriminator<IFooter>(
+export const Footer = Component.discriminator<IFooter>(
 	'footer',
 	new Schema({
 		items: {

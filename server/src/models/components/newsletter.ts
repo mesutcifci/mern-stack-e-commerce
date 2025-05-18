@@ -1,8 +1,8 @@
-import ComponentBase from '../componentModel';
+import Component from '../componentModel';
 import type { INewsletter } from '../../types/component';
 import { Schema } from 'mongoose';
 
-export const Newsletter = ComponentBase.discriminator<INewsletter>(
+export const Newsletter = Component.discriminator<INewsletter>(
 	'newsletter',
 	new Schema({
 		title: {

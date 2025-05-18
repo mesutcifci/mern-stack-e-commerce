@@ -1,5 +1,5 @@
 import { Schema } from 'mongoose';
-import ComponentBase from '../componentModel';
+import Component from '../componentModel';
 import type { IFeatureBar } from '../../types/component';
 
 const featureBarItemSchema = new Schema({
@@ -29,7 +29,7 @@ const featureBarItemSchema = new Schema({
 	},
 });
 
-export const FeatureBar = ComponentBase.discriminator<IFeatureBar>(
+export const FeatureBar = Component.discriminator<IFeatureBar>(
 	'feature-bar',
 	new Schema({
 		items: {

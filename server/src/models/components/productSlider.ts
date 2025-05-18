@@ -1,8 +1,8 @@
 import mongoose, { Schema } from 'mongoose';
-import ComponentBase from '../componentModel';
+import Component from '../componentModel';
 import type { IProductSlider } from '../../types/component';
 
-export const ProductSlider = ComponentBase.discriminator<IProductSlider>(
+export const ProductSlider = Component.discriminator<IProductSlider>(
 	'product-slider',
 	new Schema({
 		products: {

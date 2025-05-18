@@ -1,8 +1,8 @@
-import ComponentBase from '../componentModel';
+import Component from '../componentModel';
 import type { ISingleImage } from '../../types/component';
 import { Schema } from 'mongoose';
 
-export const SingleImage = ComponentBase.discriminator<ISingleImage>(
+export const SingleImage = Component.discriminator<ISingleImage>(
 	'single-image',
 	new Schema({
 		mobileImage: {

@@ -1,20 +1,18 @@
 import type { NextFunction, Request, Response } from 'express';
 import catchAsyncErrors from '../helpers/catchAsyncErrors';
 import AppError from '../helpers/appError';
-import ComponentBase, {
-	SliderComponent,
-	ProductSlider,
-	InfoBand,
-	ImageGrid,
-	SingleImage,
-	Newsletter,
-	FeatureBar,
-	Footer,
-} from '../models/componentModel';
 
 import type { Model, UpdateQuery } from 'mongoose';
+import Component from '../models/componentModel';
+import { SliderComponent } from '../models/components/sliderComponent';
+import { ProductSlider } from '../models/components/productSlider';
+import { InfoBand } from '../models/components/infoBand';
+import { ImageGrid } from '../models/components/imageGrid';
+import { Newsletter } from '../models/components/newsletter';
+import { FeatureBar } from '../models/components/featureBar';
+import { Footer } from '../models/components/footer';
+import { SingleImage } from '../models/components/singleImage';
 
-// Component type mapping for dynamic model selection
 const componentModels: Record<string, Model<any>> = {
 	'slider-component': SliderComponent,
 	'product-slider': ProductSlider,
@@ -26,12 +24,11 @@ const componentModels: Record<string, Model<any>> = {
 	footer: Footer,
 };
 
-// Get a component by its slug
 export const getComponentBySlug = catchAsyncErrors(
 	async (req: Request, res: Response, next: NextFunction) => {
 		const { slug } = req.params;
 
-		const component = await ComponentBase.findOne({ slug });
+		const component = await Component.findOne({ slug });
 
 		if (!component) {
 			next(new AppError('Component not found', 404));
@@ -56,7 +53,7 @@ export const getComponentsByPage = catchAsyncErrors(
 			return;
 		}
 
-		const components = await ComponentBase.find({
+		const components = await Component.find({
 			'page.name': pageName,
 			isActive: true,
 		}).sort({ 'page.order': 1 });
@@ -82,7 +79,6 @@ export const createComponent = catchAsyncErrors(
 			return;
 		}
 
-		// Get the appropriate component model from the map
 		const ComponentModel = componentModels[componentType];
 
 		if (!ComponentModel) {
@@ -101,14 +97,13 @@ export const createComponent = catchAsyncErrors(
 	}
 );
 
-// Update a component
+// TODO remove before production
 export const updateComponent = catchAsyncErrors(
 	async (req: Request, res: Response, next: NextFunction) => {
 		const { id } = req.params;
 		const updateData = req.body;
 
-		// Find the component first to determine its type
-		const existingComponent = await ComponentBase.findById(id);
+		const existingComponent = await Component.findById(id);
 
 		if (!existingComponent) {
 			next(new AppError('Component not found', 404));
@@ -117,7 +112,6 @@ export const updateComponent = catchAsyncErrors(
 
 		const componentType = existingComponent.get('type') as string;
 
-		// Get the appropriate component model from the map
 		const ComponentModel = componentModels[componentType];
 
 		if (!ComponentModel) {

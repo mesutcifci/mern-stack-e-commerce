@@ -59,6 +59,6 @@ baseComponentSchema.pre(/^find/, function (next) {
 	next();
 });
 
-const ComponentBase = model<IComponent>('Component', baseComponentSchema);
+const Component = model<IComponent>('Component', baseComponentSchema);
 
-export default ComponentBase;
+export default Component;
