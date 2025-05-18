@@ -1,8 +1,8 @@
 import { Schema } from 'mongoose';
 import ComponentBase from '../componentModel';
-import type { ISliderComponent } from '../../types/component';
+import type { ISliderComponent, ISliderMedia } from '../../types/component';
 
-const sliderMediaSchema = new Schema({
+const sliderMediaSchema = new Schema<ISliderMedia>({
 	mobileMedia: {
 		type: {
 			type: String,

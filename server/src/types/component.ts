@@ -1,6 +1,6 @@
 import type { Types } from 'mongoose';
 
-interface IComponentMedia {
+interface ISliderMedia {
 	mobileMedia: {
 		type: 'image' | 'video';
 		url: string;
@@ -12,7 +12,7 @@ interface IComponentMedia {
 }
 
 interface ISliderItem {
-	media: IComponentMedia[];
+	media: ISliderMedia;
 	title?: string;
 	description?: string;
 	buttonText?: string;
@@ -136,7 +136,7 @@ export type IComponent =
 	| IFeatureBar;
 
 export type {
-	IComponentMedia,
+	ISliderMedia,
 	IComponentPage,
 	ISliderItem,
 	IimageGridItem,
