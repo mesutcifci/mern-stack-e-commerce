@@ -31,7 +31,7 @@ export const SingleImage = Component.discriminator<ISingleImage>(
 		},
 		textColor: {
 			type: String,
-			required: true,
+			default: '#000000',
 		},
 	})
 );

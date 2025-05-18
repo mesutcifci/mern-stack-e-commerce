@@ -101,7 +101,7 @@ export interface ISingleImage extends IComponentBase {
 	title: string;
 	description: string;
 	linkText: string;
-	textColor: string;
+	textColor?: string;
 }
 
 export interface INewsletter extends IComponentBase {
