@@ -17,15 +17,15 @@ export const SingleImage = Component.discriminator<ISingleImage>(
 			type: String,
 			required: true,
 		},
+		linkText: {
+			type: String,
+			required: true,
+		},
 		title: {
 			type: String,
 			required: true,
 		},
 		description: {
-			type: String,
-			required: true,
-		},
-		linkText: {
 			type: String,
 			required: true,
 		},
