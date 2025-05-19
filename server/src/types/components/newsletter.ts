@@ -7,6 +7,4 @@ export interface INewsletter extends IComponentBase {
 	textColor: string;
 	agreementText: string;
 	backgroundColor: string;
-	mobileImage: string;
-	desktopImage: string;
 }

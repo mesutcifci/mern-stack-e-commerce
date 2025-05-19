@@ -19,14 +19,6 @@ const newsletterSchema = new Schema<INewsletter>({
 		type: String,
 		required: true,
 	},
-	mobileImage: {
-		type: String,
-		required: true,
-	},
-	desktopImage: {
-		type: String,
-		required: true,
-	},
 	agreementText: {
 		type: String,
 		required: true,
