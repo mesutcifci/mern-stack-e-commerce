@@ -2,12 +2,14 @@ import type { IComponentBase } from './common';
 
 export interface IFooterSubItem {
 	text: string;
+	textColor: string;
 	link: string;
 }
 
 export interface IFooterItem {
 	text: string;
-	link: string;
+	textColor: string;
+	link?: string;
 	subItems: IFooterSubItem[];
 }
 

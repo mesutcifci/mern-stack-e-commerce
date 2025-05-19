@@ -17,14 +17,17 @@ const featureBarItemSchema = new Schema<IFeatureBarItem>({
 	titleColor: {
 		type: String,
 		required: true,
+		default: '#121212',
 	},
 	descriptionColor: {
 		type: String,
 		required: true,
+		default: '#807E7E',
 	},
 	backgroundColor: {
 		type: String,
 		required: true,
+		default: '#FFFFFF',
 	},
 	icon: {
 		type: String,

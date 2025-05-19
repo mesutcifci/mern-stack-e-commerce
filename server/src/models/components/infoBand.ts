@@ -12,7 +12,7 @@ const infoBandItemSchema = new Schema<IinfoBandItem>({
 	},
 	textColor: {
 		type: String,
-		default: '#000000',
+		default: '#121212',
 	},
 	backgroundColor: {
 		type: String,
