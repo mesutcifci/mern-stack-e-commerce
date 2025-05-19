@@ -2,6 +2,7 @@ import { Schema } from 'mongoose';
 import Component from '../componentModel';
 import type {
 	ISliderComponent,
+	ISliderItem,
 	ISliderMedia,
 } from '../../types/components/slider-component';
 
@@ -30,36 +31,32 @@ const sliderMediaSchema = new Schema<ISliderMedia>({
 	},
 });
 
+const sliderItemSchema = new Schema<ISliderItem>({
+	media: {
+		type: sliderMediaSchema,
+		required: true,
+	},
+	title: String,
+	description: String,
+	buttonText: String,
+	link: String,
+	textColor: String,
+	buttonBackgroundColor: String,
+	buttonTextColor: String,
+});
+
+const sliderComponentSchema = new Schema<ISliderComponent>({
+	items: {
+		type: [sliderItemSchema],
+		required: true,
+	},
+	autoplay: {
+		type: Boolean,
+		default: false,
+	},
+});
+
 export const SliderComponent = Component.discriminator<ISliderComponent>(
 	'slider-component',
-	new Schema({
-		items: {
-			type: [
-				{
-					media: {
-						type: sliderMediaSchema,
-						required: true,
-					},
-					title: String,
-					description: String,
-					buttonText: String,
-					link: String,
-					textColor: String,
-					buttonBackgroundColor: String,
-					buttonTextColor: String,
-				},
-			],
-			required: true,
-			validate: {
-				validator: function (items: unknown[]) {
-					return Array.isArray(items) && items.length > 0;
-				},
-				message: 'Slider component must have at least one item',
-			},
-		},
-		autoplay: {
-			type: Boolean,
-			default: false,
-		},
-	})
+	sliderComponentSchema
 );

@@ -1,8 +1,11 @@
 import { Schema } from 'mongoose';
 import Component from '../componentModel';
-import type { IinfoBand } from '../../types/components/info-band';
+import type {
+	IinfoBand,
+	IinfoBandItem,
+} from '../../types/components/info-band';
 
-const infoBandItemSchema = new Schema({
+const infoBandItemSchema = new Schema<IinfoBandItem>({
 	text: {
 		type: String,
 		required: true,
@@ -21,12 +24,14 @@ const infoBandItemSchema = new Schema({
 	},
 });
 
+const infoBandSchema = new Schema<IinfoBand>({
+	items: {
+		type: [infoBandItemSchema],
+		required: true,
+	},
+});
+
 export const InfoBand = Component.discriminator<IinfoBand>(
 	'info-band',
-	new Schema({
-		items: {
-			type: [infoBandItemSchema],
-			required: true,
-		},
-	})
+	infoBandSchema
 );

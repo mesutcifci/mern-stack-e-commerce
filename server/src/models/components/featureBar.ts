@@ -32,12 +32,14 @@ const featureBarItemSchema = new Schema<IFeatureBarItem>({
 	},
 });
 
+const featureBarSchema = new Schema<IFeatureBar>({
+	items: {
+		type: [featureBarItemSchema],
+		required: true,
+	},
+});
+
 export const FeatureBar = Component.discriminator<IFeatureBar>(
 	'feature-bar',
-	new Schema({
-		items: {
-			type: [featureBarItemSchema],
-			required: true,
-		},
-	})
+	featureBarSchema
 );

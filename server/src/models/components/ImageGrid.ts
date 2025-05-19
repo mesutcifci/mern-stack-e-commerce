@@ -37,12 +37,14 @@ const imageGridItemSchema = new Schema<IimageGridItem>({
 	},
 });
 
+const imageGridSchema = new Schema<IimageGrid>({
+	items: {
+		type: [imageGridItemSchema],
+		required: true,
+	},
+});
+
 export const ImageGrid = Component.discriminator<IimageGrid>(
 	'image-grid',
-	new Schema({
-		items: {
-			type: [imageGridItemSchema],
-			required: true,
-		},
-	})
+	imageGridSchema
 );

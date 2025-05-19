@@ -32,20 +32,19 @@ const footerItemSchema = new Schema<IFooterItem>({
 	},
 });
 
-export const Footer = Component.discriminator<IFooter>(
-	'footer',
-	new Schema({
-		items: {
-			type: [footerItemSchema],
-			required: true,
-		},
-		backgroundColor: {
-			type: String,
-			required: true,
-		},
-		textColor: {
-			type: String,
-			required: true,
-		},
-	})
-);
+const footerSchema = new Schema<IFooter>({
+	items: {
+		type: [footerItemSchema],
+		required: true,
+	},
+	backgroundColor: {
+		type: String,
+		required: true,
+	},
+	textColor: {
+		type: String,
+		required: true,
+	},
+});
+
+export const Footer = Component.discriminator<IFooter>('footer', footerSchema);
