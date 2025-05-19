@@ -1,5 +1,5 @@
 import Component from '../componentModel';
-import type { INewsletter } from '../../types/component';
+import type { INewsletter } from '../../types/components/newsletter';
 import { Schema } from 'mongoose';
 
 export const Newsletter = Component.discriminator<INewsletter>(

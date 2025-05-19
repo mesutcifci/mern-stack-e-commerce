@@ -1,5 +1,5 @@
 import Component from '../componentModel';
-import type { ISingleImage } from '../../types/component';
+import type { ISingleImage } from '../../types/components/single-image';
 import { Schema } from 'mongoose';
 
 export const SingleImage = Component.discriminator<ISingleImage>(

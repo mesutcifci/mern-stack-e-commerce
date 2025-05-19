@@ -1,6 +1,6 @@
 import { Schema } from 'mongoose';
 import Component from '../componentModel';
-import type { IinfoBand } from '../../types/component';
+import type { IinfoBand } from '../../types/components/info-band';
 
 const infoBandItemSchema = new Schema({
 	text: {

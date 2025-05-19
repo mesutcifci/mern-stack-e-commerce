@@ -1,8 +1,11 @@
 import { Schema } from 'mongoose';
 import Component from '../componentModel';
-import type { IFeatureBar } from '../../types/component';
+import type {
+	IFeatureBar,
+	IFeatureBarItem,
+} from '../../types/components/feature-bar';
 
-const featureBarItemSchema = new Schema({
+const featureBarItemSchema = new Schema<IFeatureBarItem>({
 	title: {
 		type: String,
 		required: true,

@@ -1,6 +1,9 @@
 import { Schema } from 'mongoose';
 import Component from '../componentModel';
-import type { IimageGrid, IimageGridItem } from '../../types/component';
+import type {
+	IimageGrid,
+	IimageGridItem,
+} from '../../types/components/image-grid';
 
 const imageGridItemSchema = new Schema<IimageGridItem>({
 	mobileImage: {
