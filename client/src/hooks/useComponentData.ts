@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { fetchApi } from "../api/api";
-import { IComponent, IComponentData } from "../types/components";
+import { IComponent } from "../types/components";
 
 interface IuseComponentDataOptions {
   endpoint?: string;
@@ -11,7 +11,7 @@ export const useComponentData = <T extends IComponent>(
 ) => {
   const { endpoint = "/components" } = options;
 
-  const [data, setData] = useState<IComponentData<T> | null>(null);
+  const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -21,7 +21,9 @@ export const useComponentData = <T extends IComponent>(
 
     try {
       const result = await fetchApi(endpoint);
-      setData(result);
+      if (result && result.data) {
+        setData(result.data);
+      }
     } catch (err) {
       setError(
         err instanceof Error ? err : new Error("An unknown error occurred")

@@ -12,8 +12,3 @@ export type IComponent =
   | IinfoBand
   | INewsletter
   | IFeatureBar;
-
-export interface IComponentData<T extends IComponent> {
-  data: T;
-  status: string;
-}

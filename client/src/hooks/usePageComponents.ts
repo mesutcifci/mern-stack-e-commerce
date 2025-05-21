@@ -9,7 +9,7 @@ interface IUsePageComponentsOptions {
 export const usePageComponents = (options: IUsePageComponentsOptions) => {
   const { pageName } = options;
 
-  const [components, setComponents] = useState<IComponent[]>([]);
+  const [data, setData] = useState<IComponent[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -20,7 +20,7 @@ export const usePageComponents = (options: IUsePageComponentsOptions) => {
     try {
       const result = await fetchApi(`/components/page/${pageName}`);
       if (result && result.data) {
-        setComponents(result.data);
+        setData(result.data);
       }
     } catch (err) {
       setError(
@@ -36,7 +36,7 @@ export const usePageComponents = (options: IUsePageComponentsOptions) => {
   }, [fetchPageComponents]);
 
   return {
-    components,
+    data,
     loading,
     error,
     refetch: fetchPageComponents,
