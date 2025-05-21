@@ -30,7 +30,7 @@
     "paths": {
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
-      "@types/*": ["./src/types/*"]
+      "@custom-types/*": ["./src/types/*"]
     }
   },
   "include": ["src"]
