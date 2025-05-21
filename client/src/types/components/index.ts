@@ -13,7 +13,7 @@ export type IComponent =
   | INewsletter
   | IFeatureBar;
 
-export interface IComponentData {
-  data: IComponent;
+export interface IComponentData<T extends IComponent> {
+  data: T;
   status: string;
 }

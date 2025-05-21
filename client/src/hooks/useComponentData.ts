@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { fetchApi } from "../api/api";
-import { IComponent } from "../types/components";
+import { IComponent, IComponentData } from "../types/components";
 
 interface IuseComponentDataOptions {
   endpoint?: string;
@@ -11,10 +11,7 @@ export const useComponentData = <T extends IComponent>(
 ) => {
   const { endpoint = "/components" } = options;
 
-  const [data, setData] = useState<{
-    data: T;
-    status: string;
-  } | null>(null);
+  const [data, setData] = useState<IComponentData<T> | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
