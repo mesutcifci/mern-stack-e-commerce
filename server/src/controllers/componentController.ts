@@ -37,9 +37,7 @@ export const getComponentBySlug = catchAsyncErrors(
 
 		res.status(200).json({
 			status: 'success',
-			data: {
-				component,
-			},
+			data: component,
 		});
 	}
 );
@@ -61,9 +59,7 @@ export const getComponentsByPage = catchAsyncErrors(
 		res.status(200).json({
 			status: 'success',
 			results: components.length,
-			data: {
-				components,
-			},
+			data: components,
 		});
 	}
 );
