@@ -20,6 +20,7 @@ export interface ISliderItem {
   textColor?: string;
   buttonBackgroundColor?: string;
   buttonTextColor?: string;
+  _id: string;
 }
 
 export interface ISliderComponent extends IComponentBase {
