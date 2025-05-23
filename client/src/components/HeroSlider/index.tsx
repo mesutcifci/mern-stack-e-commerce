@@ -12,5 +12,7 @@ interface IHeroSliderProps {
 }
 
 export function HeroSlider({ data }: IHeroSliderProps) {
-  return <div>HeroSlider</div>;
+  if (!data || data.items?.length === 0) return null;
+
+  return <swiper-container></swiper-container>;
 }
