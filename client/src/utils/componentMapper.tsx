@@ -1,38 +1,23 @@
 import React from "react";
-import { IComponent } from "../types/components";
+import { IComponent } from "@custom-types/components";
+import { HeroSlider } from "@components/HeroSlider";
+import { ISliderComponent } from "@custom-types/components/slider-component";
 
-const SliderComponent = ({ data }: { data: IComponent }) => (
-  <div>Slider Component</div>
-);
-const SingleImageComponent = ({ data }: { data: IComponent }) => (
-  <div>Single Image Component</div>
-);
-const ImageGridComponent = ({ data }: { data: IComponent }) => (
-  <div>Image Grid Component</div>
-);
-const InfoBandComponent = ({ data }: { data: IComponent }) => (
-  <div>Info Band Component</div>
-);
-const NewsletterComponent = ({ data }: { data: IComponent }) => (
-  <div>Newsletter Component</div>
-);
-const FeatureBarComponent = ({ data }: { data: IComponent }) => (
-  <div>Feature Bar Component</div>
-);
-
-const componentMap: Record<string, React.FC<{ data: IComponent }>> = {
-  "slider-component": SliderComponent,
-  "single-image": SingleImageComponent,
-  "image-grid": ImageGridComponent,
-  "info-band": InfoBandComponent,
-  newsletter: NewsletterComponent,
-  "feature-bar": FeatureBarComponent,
+const componentMap: Record<
+  string,
+  (props: { data: IComponent }) => JSX.Element
+> = {
+  "slider-component": ({ data }) => (
+    <HeroSlider data={data as ISliderComponent} />
+  ),
 };
 
-export const ComponentRenderer: React.FC<{
+export const ComponentRenderer = ({
+  data,
+}: {
   data: IComponent;
   index?: number;
-}> = ({ data }) => {
+}): JSX.Element | null => {
   const ComponentToRender = componentMap[data.type];
 
   if (!ComponentToRender) {
