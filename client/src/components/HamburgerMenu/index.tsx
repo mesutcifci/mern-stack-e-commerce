@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { Category } from "../types/navigation";
+import { Category } from "@custom-types/navigation";
 
 // Components
 import { motion, AnimatePresence } from "framer-motion";
-import Overlay from "./Overlay";
+import Overlay from "@components/Overlay";
 
 // Images
 import chevronLeft from "@assets/images/chevron-left.svg";

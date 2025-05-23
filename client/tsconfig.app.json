@@ -29,7 +29,9 @@
     ],
     "paths": {
       "@assets/*": ["./src/assets/*"],
+      "@api/*": ["./src/api/*"],
       "@components/*": ["./src/components/*"],
+      "@pages/*": ["./src/pages/*"],
       "@custom-types/*": ["./src/types/*"]
     }
   },

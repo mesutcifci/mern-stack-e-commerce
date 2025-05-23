@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 // Data
-import { fetchApi } from "../api/api";
-import { Category } from "../types/navigation";
+import { fetchApi } from "@api/api";
+import { Category } from "@custom-types/navigation";
 
 // Images
 import bag from "@assets/images/bag.svg";
@@ -11,7 +11,7 @@ import logo from "@assets/images/logo.svg";
 import search from "@assets/images/search.svg";
 
 // Components
-import HamburgerMenu from "./HamburgerMenu";
+import HamburgerMenu from "@components/HamburgerMenu";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { AdvancedImage } from "@cloudinary/react";
 import { Resize } from "@cloudinary/url-gen/actions";
