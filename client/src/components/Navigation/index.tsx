@@ -14,7 +14,7 @@ import search from "@assets/images/search.svg";
 import HamburgerMenu from "@components/HamburgerMenu";
 import { AdvancedImage } from "@cloudinary/react";
 import { Resize } from "@cloudinary/url-gen/actions";
-import { cloudinary } from "../../utils/cloudinary";
+import { cld } from "@utils/cloudinary";
 
 export function Navigation() {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -130,7 +130,7 @@ export function Navigation() {
                         {category.images?.map((image) => (
                           <a key={image.id} href={image.link} className="block">
                             <AdvancedImage
-                              cldImg={cloudinary
+                              cldImg={cld
                                 .image(image.url)
                                 .format("auto")
                                 .resize(Resize.fill(500, 750))}
