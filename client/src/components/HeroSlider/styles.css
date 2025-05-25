@@ -1,7 +1,3 @@
-.hero-slider {
-  @apply border border-red-500;
-}
-
 /* #DOC The ::part CSS pseudo-element represents any element within a shadow tree
  * that has a matching part attribute.
  * https://developer.mozilla.org/en-US/docs/Web/CSS/::part
