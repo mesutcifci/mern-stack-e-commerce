@@ -103,10 +103,6 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
     setPath(path.slice(0, -1));
   };
 
-  useEffect(() => {
-    console.log("path", path.length);
-  }, [path]);
-
   return (
     <>
       {/* The hamburger menu and the overlay share same state*/}

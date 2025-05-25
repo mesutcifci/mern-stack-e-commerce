@@ -12,8 +12,6 @@ interface IHeroSliderProps {
 export function HeroSlider({ data }: IHeroSliderProps) {
   if (!data || data.items?.length === 0 || !data.isActive) return null;
 
-  console.log("data", data);
-
   return (
     <div className="hero-slider">
       <swiper-container
