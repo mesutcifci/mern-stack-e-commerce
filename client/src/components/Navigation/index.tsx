@@ -77,7 +77,7 @@ export function Navigation({ isScrolled }: NavigationProps) {
           "flex justify-between items-center px-4 lg:px-8 2xl:px-14 py-3 lg:pb-0 lg:items-stretch"
         )}
       >
-        <div className={twMerge("flex items-center gap-x-3")}>
+        <div className={twMerge("flex items-center gap-x-3 lg:pb-4")}>
           <img
             src={hamburger}
             width={26}
@@ -94,6 +94,7 @@ export function Navigation({ isScrolled }: NavigationProps) {
             )}
           />
         </div>
+
         {/* Categories */}
         <div className={twMerge("hidden lg:flex items-stretch")}>
           {categories.map((category) => (
@@ -191,7 +192,11 @@ export function Navigation({ isScrolled }: NavigationProps) {
           ))}
         </div>
 
-        <div className={twMerge("flex items-center gap-x-4")}>
+        <div
+          className={twMerge(
+            "flex items-center gap-x-4 lg:w-[9.6875rem] lg:justify-end lg:pb-4"
+          )}
+        >
           <img
             src={search}
             width={26}
