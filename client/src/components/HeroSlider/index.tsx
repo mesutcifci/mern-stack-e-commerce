@@ -17,7 +17,7 @@ export function HeroSlider({ data }: IHeroSliderProps) {
       <swiper-container
         pagination="true"
         pagination-clickable="true"
-        // autoplay-delay="2500"
+        autoplay-delay={data.autoplay ? "2500" : undefined}
       >
         {data.items?.map((item, index) => (
           <swiper-slide key={item._id || index}>
