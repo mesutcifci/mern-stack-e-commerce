@@ -33,7 +33,8 @@
       "@components/*": ["./src/components/*"],
       "@pages/*": ["./src/pages/*"],
       "@custom-types/*": ["./src/types/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@utils/*": ["./src/utils/*"],
+      "@hooks/*": ["./src/hooks/*"]
     }
   },
   "include": ["src"]

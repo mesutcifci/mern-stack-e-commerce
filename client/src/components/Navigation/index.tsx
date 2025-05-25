@@ -18,12 +18,15 @@ import { AdvancedImage } from "@cloudinary/react";
 import { Resize } from "@cloudinary/url-gen/actions";
 import { cld } from "@utils/cloudinary";
 
-export function Navigation() {
+interface NavigationProps {
+  isScrolled: boolean;
+}
+
+export function Navigation({ isScrolled }: NavigationProps) {
   const [categories, setCategories] = useState<Category[]>([]);
   // const [extraItems, setExtraItems] = useState<any[]>([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const fetchNavigation = async () => {
@@ -42,15 +45,6 @@ export function Navigation() {
       }
     };
     fetchNavigation();
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const openMenu = () => {
@@ -72,7 +66,7 @@ export function Navigation() {
   return (
     <nav
       className={twMerge(
-        clsx("fixed top-0 left-0 right-0 z-navigation", {
+        clsx("w-full relative", {
           "transition-all duration-300": isScrolled && !activeCategory,
           "bg-white": isScrolled || activeCategory,
         })
@@ -123,7 +117,7 @@ export function Navigation() {
               {activeCategory === category.id && (
                 <div
                   className={twMerge(
-                    "absolute top-full left-0 w-full shadow-lg p-6 z-mega-menu bg-white"
+                    "absolute left-0 right-0 shadow-lg p-6 z-mega-menu bg-white"
                   )}
                 >
                   <div

@@ -32,7 +32,7 @@ export default {
       },
       zIndex: {
         "hamburger-menu": "101",
-        navigation: "50",
+        header: "50",
         "mega-menu": "45",
         "hero-slider": "10",
         overlay: "100",
