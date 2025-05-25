@@ -1,0 +1,19 @@
+.hero-slider {
+  @apply border border-red-500;
+}
+
+/* #DOC The ::part CSS pseudo-element represents any element within a shadow tree
+ * that has a matching part attribute.
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/::part
+ *
+ * In swiper we can't use class names to style shadow DOM elements,
+ * so we need to use the ::part pseudo-element to style the active bullet.
+ */
+.hero-slider swiper-container::part(bullet-active) {
+  @apply bg-white rounded-[100px] w-[1.875rem] !important;
+  @apply transition-[width] duration-500;
+}
+
+.hero-slider swiper-container::part(bullet) {
+  @apply bg-white w-[8px] h-[8px] opacity-100 !important;
+}

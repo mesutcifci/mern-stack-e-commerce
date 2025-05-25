@@ -3,6 +3,7 @@ import { HeroSliderMedia } from "./HeroSliderMedia";
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
 import arrowRight from "@assets/images/arrow-right.svg";
+import "./styles.css";
 
 interface IHeroSliderProps {
   data: ISliderComponent;
@@ -14,61 +15,68 @@ export function HeroSlider({ data }: IHeroSliderProps) {
   console.log("data", data);
 
   return (
-    <swiper-container
-      pagination="true"
-      pagination-clickable="true"
-      // autoplay-delay="2500"
-    >
-      {data.items?.map((item, index) => (
-        <swiper-slide key={item._id || index}>
-          <div className="relative">
-            <div className="absolute flex flex-col gap-y-4 md:gap-y-8 top-10 left-4 right-4">
-              {item.title && (
-                <h2
-                  className={twMerge(
-                    `text-[${item.textColor}] font-spaceGrotesk font-medium text-3xl md:text-4xl`
-                  )}
-                >
-                  {item.title}
-                </h2>
-              )}
-              {item.description && (
-                <p
-                  className={twMerge(
-                    `text-[${item.textColor}] font-inter text-sm md:text-xl`
-                  )}
-                >
-                  {item.description}
-                </p>
-              )}
-              {item.buttonText && (
-                <a
-                  href={item.link}
-                  className={twMerge(
-                    clsx(
-                      // item.buttonBackgroundColor === "transparent"
-                      //   ? "bg-transparent"
-                      //   : `bg-[${item.buttonBackgroundColor}]`,
-                      `text-[${item.buttonTextColor}]`,
-                      `flex items-center w-max border-b border-b-[${item.buttonTextColor}]`
-                    )
-                  )}
-                >
-                  <span
+    <div className="hero-slider">
+      <swiper-container
+        pagination="true"
+        pagination-clickable="true"
+        // autoplay-delay="2500"
+      >
+        {data.items?.map((item, index) => (
+          <swiper-slide key={item._id || index}>
+            <div className="relative">
+              <div className="absolute top-10 left-4 pr-4 lg:top-20 lg:left-14 lg:w-[28rem] flex flex-col gap-y-4 md:gap-y-8">
+                {item.title && (
+                  <h2
                     className={twMerge(
-                      "text-sm md:text-xl font-spaceGrotesk font-medium"
+                      `text-[${item.textColor}] font-spaceGrotesk font-medium text-3xl md:text-4xl lg:text-5xl`
                     )}
                   >
-                    {item.buttonText}
-                  </span>
-                  <img src={arrowRight} alt="" />
-                </a>
-              )}
+                    {item.title}
+                  </h2>
+                )}
+                {item.description && (
+                  <p
+                    className={twMerge(
+                      `text-[${item.textColor}] font-inter text-sm md:text-xl`
+                    )}
+                  >
+                    {item.description}
+                  </p>
+                )}
+                {item.buttonText && (
+                  <a
+                    href={item.link}
+                    className={twMerge(
+                      clsx(
+                        // item.buttonBackgroundColor === "transparent"
+                        //   ? "bg-transparent"
+                        //   : `bg-[${item.buttonBackgroundColor}]`,
+                        `text-[${item.buttonTextColor}]`,
+                        `flex items-center w-max border-b border-b-[${item.buttonTextColor}]`,
+                        "group"
+                      )
+                    )}
+                  >
+                    <span
+                      className={twMerge(
+                        "text-sm md:text-xl font-spaceGrotesk font-medium"
+                      )}
+                    >
+                      {item.buttonText}
+                    </span>
+                    <img
+                      src={arrowRight}
+                      alt=""
+                      className="transition-all duration-300 group-hover:translate-x-1"
+                    />
+                  </a>
+                )}
+              </div>
+              <HeroSliderMedia item={item} />
             </div>
-            <HeroSliderMedia item={item} />
-          </div>
-        </swiper-slide>
-      ))}
-    </swiper-container>
+          </swiper-slide>
+        ))}
+      </swiper-container>
+    </div>
   );
 }
