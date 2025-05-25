@@ -29,6 +29,10 @@ const infoBandSchema = new Schema<IinfoBand>({
 		type: [infoBandItemSchema],
 		required: true,
 	},
+	autoplay: {
+		type: Boolean,
+		default: false,
+	},
 });
 
 export const InfoBand = Component.discriminator<IinfoBand>(
