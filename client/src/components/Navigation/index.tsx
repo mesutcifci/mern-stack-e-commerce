@@ -72,13 +72,10 @@ export function Navigation() {
   return (
     <nav
       className={twMerge(
-        clsx(
-          "fixed top-0 left-0 right-0 z-navigation transition-all duration-300",
-          {
-            "bg-white": isScrolled || activeCategory,
-            "bg-transparent": !isScrolled && !activeCategory,
-          }
-        )
+        clsx("fixed top-0 left-0 right-0 z-navigation", {
+          "transition-all duration-300": isScrolled && !activeCategory,
+          "bg-white": isScrolled || activeCategory,
+        })
       )}
     >
       <div
@@ -110,7 +107,7 @@ export function Navigation() {
               key={category.id}
               onMouseEnter={() => handleCategoryHover(category.id)}
               onMouseLeave={handleCategoryLeave}
-              className={twMerge("pr-6 last:pr-0")}
+              className={twMerge("pr-6 last:pr-0 pb-2")}
             >
               <span
                 className={twMerge(
