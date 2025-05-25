@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 
 // Data
 import { fetchApi } from "@api/api";
@@ -21,6 +23,7 @@ export function Navigation() {
   // const [extraItems, setExtraItems] = useState<any[]>([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const fetchNavigation = async () => {
@@ -41,6 +44,15 @@ export function Navigation() {
     fetchNavigation();
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const openMenu = () => {
     setIsMenuOpen(true);
   };
@@ -58,63 +70,97 @@ export function Navigation() {
   };
 
   return (
-    <nav className="relative">
-      <div className="flex justify-between items-center px-3 py-4 lg:pb-0 lg:items-stretch">
-        <div className="flex items-center gap-x-3">
+    <nav
+      className={twMerge(
+        clsx(
+          "fixed top-0 left-0 right-0 z-navigation transition-all duration-300",
+          {
+            "bg-white": isScrolled || activeCategory,
+            "bg-transparent": !isScrolled && !activeCategory,
+          }
+        )
+      )}
+    >
+      <div
+        className={twMerge(
+          "flex justify-between items-center px-3 py-3 lg:pb-0 lg:items-stretch"
+        )}
+      >
+        <div className={twMerge("flex items-center gap-x-3")}>
           <img
             src={hamburger}
             width={26}
             height={26}
-            className="cursor-pointer lg:hidden"
+            className={twMerge("cursor-pointer lg:hidden")}
             onClick={openMenu}
           />
           <img
             src={logo}
             width={114}
             height={22}
-            className="lg:w-[9.6875rem] lg:h-[1.875rem] cursor-pointer"
+            className={twMerge(
+              "lg:w-[9.6875rem] lg:h-[1.875rem] cursor-pointer"
+            )}
           />
         </div>
         {/* Categories */}
-        <div className="hidden lg:flex items-stretch">
+        <div className={twMerge("hidden lg:flex items-stretch")}>
           {categories.map((category) => (
             <div
               key={category.id}
               onMouseEnter={() => handleCategoryHover(category.id)}
               onMouseLeave={handleCategoryLeave}
-              className="pr-6 last:pr-0"
+              className={twMerge("pr-6 last:pr-0")}
             >
               <span
-                className={`cursor-pointer text-xl xl:text-2xl text-mesblack  ${
-                  activeCategory === category.id ? "text-lifblue" : ""
-                }`}
+                className={twMerge(
+                  clsx("cursor-pointer text-xl xl:text-2xl text-mesblack", {
+                    "text-lifblue": activeCategory === category.id,
+                  })
+                )}
               >
                 {category.name}
               </span>
 
               {/* Mega Menu */}
               {activeCategory === category.id && (
-                <div className="absolute top-full left-0 w-full shadow-lg p-6 z-50">
-                  <div className="flex justify-between max-w-screen-xl mx-auto pt-6">
+                <div
+                  className={twMerge(
+                    "absolute top-full left-0 w-full shadow-lg p-6 z-mega-menu bg-white"
+                  )}
+                >
+                  <div
+                    className={twMerge(
+                      "flex justify-between max-w-screen-xl mx-auto pt-6"
+                    )}
+                  >
                     {/* Categories List */}
-                    <div className="flex gap-y-6 gap-x-[5.5rem] flex-wrap xl:self-center xl:mx-auto">
+                    <div
+                      className={twMerge(
+                        "flex gap-y-6 gap-x-[5.5rem] flex-wrap xl:self-center xl:mx-auto"
+                      )}
+                    >
                       {category.children?.map((subCategory) => (
                         <div
                           key={subCategory.id}
-                          className="gap-y-2 flex flex-col"
+                          className={twMerge("gap-y-2 flex flex-col")}
                         >
                           <a
                             href={`/${subCategory.slug}`}
-                            className="text-mesblack text-base xl:text-lg font-medium hover:text-lifblue"
+                            className={twMerge(
+                              "text-mesblack text-base xl:text-lg font-medium hover:text-lifblue"
+                            )}
                           >
                             {subCategory.name}
                           </a>
-                          <ul className="flex flex-col gap-y-2">
+                          <ul className={twMerge("flex flex-col gap-y-2")}>
                             {subCategory.children?.map((item) => (
                               <li key={item.id}>
                                 <a
                                   href={`/${item.slug}`}
-                                  className="text-mesblack hover:text-lifblue font-normal text-sm xl:text-base"
+                                  className={twMerge(
+                                    "text-mesblack hover:text-lifblue font-normal text-sm xl:text-base"
+                                  )}
                                 >
                                   {item.name}
                                 </a>
@@ -126,9 +172,15 @@ export function Navigation() {
                     </div>
                     {/* Images */}
                     {category.images?.length > 0 && (
-                      <div className="flex gap-x-6 shrink-0 self-center">
+                      <div
+                        className={twMerge("flex gap-x-6 shrink-0 self-center")}
+                      >
                         {category.images?.map((image) => (
-                          <a key={image.id} href={image.link} className="block">
+                          <a
+                            key={image.id}
+                            href={image.link}
+                            className={twMerge("block")}
+                          >
                             <AdvancedImage
                               cldImg={cld
                                 .image(image.url)
@@ -148,11 +200,25 @@ export function Navigation() {
           ))}
         </div>
 
-        <div className="flex items-center gap-x-4">
-          <img src={search} width={26} height={26} className="cursor-pointer" />
-          <div className="flex items-center">
-            <img src={bag} width={26} height={26} className="cursor-pointer" />
-            <span className="flex items-center justify-center p-1 min-w-[1.25rem] min-h-[1.25rem] max-w-8 max-h-8 text-xs leading-[.625rem] font-inter font-bold text-white bg-black rounded-full aspect-square cursor-pointer">
+        <div className={twMerge("flex items-center gap-x-4")}>
+          <img
+            src={search}
+            width={26}
+            height={26}
+            className={twMerge("cursor-pointer")}
+          />
+          <div className={twMerge("flex items-center")}>
+            <img
+              src={bag}
+              width={26}
+              height={26}
+              className={twMerge("cursor-pointer")}
+            />
+            <span
+              className={twMerge(
+                "flex items-center justify-center p-1 min-w-[1.25rem] min-h-[1.25rem] max-w-8 max-h-8 text-xs leading-[.625rem] font-inter font-bold text-white bg-black rounded-full aspect-square cursor-pointer"
+              )}
+            >
               2
             </span>
           </div>
