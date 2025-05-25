@@ -21,14 +21,12 @@ export function HeroSliderMedia({ item }: IHeroSliderMediaProps) {
 
   if (mediaType === "image") {
     return (
-      <a href={item.link}>
-        <ResponsiveImage
-          desktopUrl={desktopMediaSlug}
-          mobileUrl={mobileMediaSlug}
-          alt={item.title}
-          sizes={SIZES}
-        />
-      </a>
+      <ResponsiveImage
+        desktopUrl={desktopMediaSlug}
+        mobileUrl={mobileMediaSlug}
+        alt={item.title}
+        sizes={SIZES}
+      />
     );
   }
 
