@@ -34,7 +34,8 @@
       "@pages/*": ["./src/pages/*"],
       "@custom-types/*": ["./src/types/*"],
       "@utils/*": ["./src/utils/*"],
-      "@hooks/*": ["./src/hooks/*"]
+      "@hooks/*": ["./src/hooks/*"],
+      "@icons/*": ["./src/Icons/*"]
     }
   },
   "include": ["src"]

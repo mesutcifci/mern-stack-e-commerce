@@ -1,0 +1,46 @@
+interface ArrowRightProps {
+  className?: string;
+  width?: number;
+  height?: number;
+  stroke?: string;
+}
+
+export function ArrowRight({
+  className = "",
+  width = 18,
+  height = 18,
+  stroke = "#121212",
+}: ArrowRightProps) {
+  return (
+    <svg
+      className={className}
+      width={width}
+      height={height}
+      viewBox="0 0 18 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 9H14.25"
+        stroke={stroke}
+        stroke-width="1.125"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M9.75 13.5L14.25 9"
+        stroke={stroke}
+        stroke-width="1.125"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M9.75 4.5L14.25 9"
+        stroke={stroke}
+        stroke-width="1.125"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+}

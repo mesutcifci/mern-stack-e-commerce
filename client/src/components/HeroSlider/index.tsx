@@ -1,8 +1,8 @@
 import { ISliderComponent } from "@custom-types/components/slider-component";
 import { HeroSliderMedia } from "./HeroSliderMedia";
+import { ArrowRight } from "@icons/ArrowRight";
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
-import arrowRight from "@assets/images/arrow-right.svg";
 import "./styles.css";
 
 interface IHeroSliderProps {
@@ -75,10 +75,9 @@ export function HeroSlider({ data }: IHeroSliderProps) {
                     >
                       {item.buttonText}
                     </span>
-                    <img
-                      src={arrowRight}
-                      alt=""
+                    <ArrowRight
                       className="transition-all duration-300 group-hover:translate-x-1"
+                      stroke={item.buttonTextColor}
                     />
                   </a>
                 )}
