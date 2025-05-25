@@ -124,7 +124,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-            className="fixed inset-y-0 left-0 z-[101] bg-white h-full w-full max-w-lg overflow-y-auto shadow-lg lg:hidden flex flex-col pb-6"
+            className="fixed inset-y-0 left-0 z-hamburger-menu bg-white h-full w-full max-w-lg overflow-y-auto shadow-lg lg:hidden flex flex-col pb-6"
           >
             {/* Header */}
             <div className="flex items-center justify-between p-6">

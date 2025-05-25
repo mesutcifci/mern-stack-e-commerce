@@ -6,7 +6,7 @@ interface OverlayProps {
 const Overlay: React.FC<OverlayProps> = ({ isOpen, onClose }) => {
   return (
     <div
-      className={`fixed inset-0 bg-black transform transition-all ease-in-out duration-300 z-[100] ${
+      className={`fixed inset-0 bg-black transform transition-all ease-in-out duration-300 z-overlay ${
         isOpen
           ? "opacity-50 visible"
           : "opacity-0 invisible pointer-events-none"

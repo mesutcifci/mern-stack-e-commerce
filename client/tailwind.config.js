@@ -30,6 +30,13 @@ export default {
         "4xl": ["40px", "48px"],
         "5xl": ["48px", "56px"],
       },
+      zIndex: {
+        "hamburger-menu": "101",
+        navigation: "50",
+        "mega-menu": "45",
+        "hero-slider": "10",
+        overlay: "100",
+      },
     },
   },
   plugins: [],
