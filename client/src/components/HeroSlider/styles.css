@@ -13,3 +13,7 @@
 .hero-slider swiper-container::part(bullet) {
   @apply bg-white w-[8px] h-[8px] opacity-100 !important;
 }
+
+.hero-slider swiper-container::part(pagination) {
+  @apply bottom-[3%] !important;
+}

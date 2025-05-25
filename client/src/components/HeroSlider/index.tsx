@@ -24,7 +24,11 @@ export function HeroSlider({ data }: IHeroSliderProps) {
         {data.items?.map((item, index) => (
           <swiper-slide key={item._id || index}>
             <div className="relative">
-              <div className="absolute top-10 left-4 pr-4 lg:top-20 lg:left-14 lg:w-[28rem] flex flex-col gap-y-4 md:gap-y-8">
+              <div
+                className={twMerge(
+                  "absolute left-4 pr-4 top-20 xl:top-36 lg:left-8 2xl:left-14 lg:w-[28rem] flex flex-col gap-y-4 md:gap-y-8"
+                )}
+              >
                 {item.title && (
                   <h2
                     className={twMerge(

@@ -83,7 +83,7 @@ export function Navigation() {
     >
       <div
         className={twMerge(
-          "flex justify-between items-center px-3 py-3 lg:pb-0 lg:items-stretch"
+          "flex justify-between items-center px-4 lg:px-8 2xl:px-14 py-3 lg:pb-0 lg:items-stretch"
         )}
       >
         <div className={twMerge("flex items-center gap-x-3")}>
