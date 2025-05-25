@@ -21,7 +21,16 @@ export function HeroSlider({ data }: IHeroSliderProps) {
       >
         {data.items?.map((item, index) => (
           <swiper-slide key={item._id || index}>
-            <div className="relative">
+            <div
+              className="relative"
+              style={
+                {
+                  "--text-color": item.textColor,
+                  "--button-text-color": item.buttonTextColor,
+                  "--button-background-color": item.buttonBackgroundColor,
+                } as React.CSSProperties
+              }
+            >
               <div
                 className={twMerge(
                   "absolute left-4 pr-4 top-20 xl:top-36 lg:left-8 2xl:left-14 lg:w-[28rem] flex flex-col gap-y-4 md:gap-y-8"
@@ -30,7 +39,7 @@ export function HeroSlider({ data }: IHeroSliderProps) {
                 {item.title && (
                   <h2
                     className={twMerge(
-                      `text-[${item.textColor}] font-spaceGrotesk font-medium text-3xl md:text-4xl lg:text-5xl`
+                      `text-[var(--text-color)] font-spaceGrotesk font-medium text-3xl md:text-4xl lg:text-5xl`
                     )}
                   >
                     {item.title}
@@ -39,7 +48,7 @@ export function HeroSlider({ data }: IHeroSliderProps) {
                 {item.description && (
                   <p
                     className={twMerge(
-                      `text-[${item.textColor}] font-inter text-sm md:text-xl`
+                      `text-[var(--text-color)] font-inter text-sm md:text-xl`
                     )}
                   >
                     {item.description}
@@ -52,9 +61,9 @@ export function HeroSlider({ data }: IHeroSliderProps) {
                       clsx(
                         // item.buttonBackgroundColor === "transparent"
                         //   ? "bg-transparent"
-                        //   : `bg-[${item.buttonBackgroundColor}]`,
-                        `text-[${item.buttonTextColor}]`,
-                        `flex items-center w-max border-b border-b-[${item.buttonTextColor}]`,
+                        //   : `bg-[var(--button-background-color)]`,
+                        `text-[var(--button-text-color)]`,
+                        `flex items-center w-max border-b border-b-[var(--button-text-color)]`,
                         "group"
                       )
                     )}
