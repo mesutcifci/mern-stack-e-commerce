@@ -1,4 +1,3 @@
-import { pictureBreakpoints } from "@utils/breakpoints";
 import { buildImageUrl } from "@utils/buildImageUrl";
 
 interface ImageSize {
@@ -6,82 +5,60 @@ interface ImageSize {
   height: number;
 }
 
+interface Source {
+  size: ImageSize;
+  breakpoint: string;
+  url: string;
+}
+
+interface Fallback {
+  url: string;
+  width: number;
+  height: number;
+}
+
 interface ResponsiveImageProps {
-  desktopUrl: string;
-  mobileUrl: string;
+  sources: Source[];
+  fallback: Fallback;
   alt?: string;
-  sizes: {
-    xl: ImageSize;
-    lg: ImageSize;
-    md: ImageSize;
-    xs: ImageSize;
-    fallback: ImageSize;
-  };
   className?: string;
   format?: string;
   quality?: string;
 }
 
 export function ResponsiveImage({
-  desktopUrl,
-  mobileUrl,
+  sources,
+  fallback,
   alt = "image",
-  sizes,
   className = "",
   format = "auto",
   quality = "auto",
 }: ResponsiveImageProps) {
   return (
     <picture className={className}>
-      <source
-        srcSet={buildImageUrl({
-          url: desktopUrl,
-          format,
-          quality,
-          ...sizes.xl,
-        })}
-        media={pictureBreakpoints.xl}
-      />
-
-      <source
-        srcSet={buildImageUrl({
-          url: desktopUrl,
-          format,
-          quality,
-          ...sizes.lg,
-        })}
-        media={pictureBreakpoints.lg}
-      />
-
-      <source
-        srcSet={buildImageUrl({
-          url: mobileUrl,
-          format,
-          quality,
-          ...sizes.md,
-        })}
-        media={pictureBreakpoints.md}
-      />
-
-      <source
-        srcSet={buildImageUrl({
-          url: mobileUrl,
-          format,
-          quality,
-          ...sizes.xs,
-        })}
-        media={pictureBreakpoints.xs}
-      />
+      {sources.map((source, index) => (
+        <source
+          key={index}
+          srcSet={buildImageUrl({
+            url: source.url,
+            format,
+            quality,
+            ...source.size,
+          })}
+          media={source.breakpoint}
+        />
+      ))}
 
       <img
         src={buildImageUrl({
-          url: mobileUrl,
+          url: fallback.url,
           format,
           quality,
-          ...sizes.fallback,
+          width: fallback.width,
+          height: fallback.height,
         })}
-        width={sizes.fallback.width}
-        height={sizes.fallback.height}
+        width={fallback.width}
+        height={fallback.height}
         alt={alt}
         className="w-full"
       />
