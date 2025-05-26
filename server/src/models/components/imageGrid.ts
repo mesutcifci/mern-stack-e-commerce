@@ -30,17 +30,22 @@ const imageGridItemSchema = new Schema<IimageGridItem>({
 		type: String,
 		required: true,
 	},
-	type: {
-		type: String,
-		required: true,
-		enum: ['full', 'half'],
-	},
 });
 
 const imageGridSchema = new Schema<IimageGrid>({
 	items: {
-		type: [imageGridItemSchema],
-		required: true,
+		full_image: {
+			type: imageGridItemSchema,
+			required: true,
+		},
+		half_image_first: {
+			type: imageGridItemSchema,
+			required: true,
+		},
+		half_image_second: {
+			type: imageGridItemSchema,
+			required: true,
+		},
 	},
 });
 

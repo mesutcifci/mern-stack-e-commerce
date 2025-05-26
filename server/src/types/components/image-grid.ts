@@ -7,10 +7,13 @@ export interface IimageGridItem {
 	subtitle: string;
 	textColor: string;
 	link: string;
-	type: 'full' | 'half';
 }
 
 export interface IimageGrid extends IComponentBase {
 	type: 'image-grid';
-	items: IimageGridItem[];
+	items: {
+		full_image: IimageGridItem;
+		half_image_first: IimageGridItem;
+		half_image_second: IimageGridItem;
+	};
 }
