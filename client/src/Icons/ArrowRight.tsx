@@ -1,21 +1,15 @@
 interface ArrowRightProps {
   className?: string;
-  width?: number;
-  height?: number;
   stroke?: string;
 }
 
 export function ArrowRight({
   className = "",
-  width = 18,
-  height = 18,
   stroke = "#121212",
 }: ArrowRightProps) {
   return (
     <svg
       className={className}
-      width={width}
-      height={height}
       viewBox="0 0 18 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

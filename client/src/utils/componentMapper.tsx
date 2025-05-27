@@ -1,6 +1,7 @@
 import { IComponent } from "@custom-types/components";
 import { HeroSlider } from "@components/HeroSlider";
 import { ImageGrid } from "@components/ImageGrid";
+import { SingleImage } from "@components/SingleImage";
 
 // TODO: use a readable map approach for components, instead of switch case
 export const ComponentRenderer = ({ data }: { data: IComponent }) => {
@@ -9,6 +10,8 @@ export const ComponentRenderer = ({ data }: { data: IComponent }) => {
       return <HeroSlider data={data} />;
     case "image-grid":
       return <ImageGrid data={data} />;
+    case "single-image":
+      return <SingleImage data={data} />;
     default:
       return null;
   }
