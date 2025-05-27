@@ -14,6 +14,13 @@ const featureBarItemSchema = new Schema<IFeatureBarItem>({
 		type: String,
 		required: true,
 	},
+	icon: {
+		type: String,
+		required: true,
+	},
+});
+
+const featureBarSchema = new Schema<IFeatureBar>({
 	titleColor: {
 		type: String,
 		required: true,
@@ -29,13 +36,6 @@ const featureBarItemSchema = new Schema<IFeatureBarItem>({
 		required: true,
 		default: '#FFFFFF',
 	},
-	icon: {
-		type: String,
-		required: true,
-	},
-});
-
-const featureBarSchema = new Schema<IFeatureBar>({
 	items: {
 		type: [featureBarItemSchema],
 		required: true,
