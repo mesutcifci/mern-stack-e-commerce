@@ -1,15 +1,16 @@
 import { IinfoBand } from "@custom-types/components/info-band";
 import { twMerge } from "tailwind-merge";
+import { IComponentProps } from "@custom-types/components";
 
-interface IinfoBandProps {
+interface IinfoBandProps extends IComponentProps {
   data: IinfoBand;
 }
 
-export function InfoBand({ data }: IinfoBandProps) {
+export function InfoBand({ data, className }: IinfoBandProps) {
   if (!data || !data.items || !data.isActive) return null;
 
   return (
-    <div className="w-full h-10">
+    <div className={twMerge("w-full h-10", className)}>
       <swiper-container autoplay-delay={data.autoplay ? "2500" : undefined}>
         {data.items.map((item) => (
           <swiper-slide key={item.text}>

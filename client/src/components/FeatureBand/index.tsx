@@ -1,16 +1,17 @@
 import { IFeatureBar } from "@custom-types/components/feature-bar";
 import { twMerge } from "tailwind-merge";
 import { cld } from "@utils/cloudinary";
+import { IComponentProps } from "@custom-types/components";
 
-interface IFeatureBandProps {
+interface IFeatureBandProps extends IComponentProps {
   data: IFeatureBar;
 }
 
-export function FeatureBand({ data }: IFeatureBandProps) {
+export function FeatureBand({ data, className }: IFeatureBandProps) {
   if (!data || !data.items || !data.isActive) return null;
 
   return (
-    <div className="w-full py-8 px-4 lg:px-8 2xl:px-14">
+    <div className={twMerge("w-full py-8 px-4 lg:px-8 2xl:px-14", className)}>
       <div className="flex flex-wrap justify-between">
         {data.items.map((item, index) => (
           <div

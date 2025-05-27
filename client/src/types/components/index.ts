@@ -12,3 +12,7 @@ export type IComponent =
   | IinfoBand
   | INewsletter
   | IFeatureBar;
+
+export interface IComponentProps {
+  className?: string;
+}

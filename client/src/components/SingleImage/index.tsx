@@ -3,10 +3,10 @@ import { ISingleImage } from "@custom-types/components/single-image";
 import { pictureBreakpoints } from "@utils/breakpoints";
 import { twMerge } from "tailwind-merge";
 import { ArrowRight } from "@icons/ArrowRight";
+import { IComponentProps } from "@custom-types/components";
 
-interface ISingleImageProps {
+interface ISingleImageProps extends IComponentProps {
   data: ISingleImage;
-  className?: string;
 }
 
 export function SingleImage({ data, className }: ISingleImageProps) {

@@ -4,16 +4,17 @@ import { ArrowRight } from "@icons/ArrowRight";
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
 import "./styles.css";
+import { IComponentProps } from "@custom-types/components";
 
-interface IHeroSliderProps {
+interface IHeroSliderProps extends IComponentProps {
   data: ISliderComponent;
 }
 
-export function HeroSlider({ data }: IHeroSliderProps) {
+export function HeroSlider({ data, className }: IHeroSliderProps) {
   if (!data || data.items?.length === 0 || !data.isActive) return null;
 
   return (
-    <div className="hero-slider">
+    <div className={twMerge("hero-slider", className)}>
       <swiper-container
         pagination="true"
         pagination-clickable="true"
