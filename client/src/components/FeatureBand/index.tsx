@@ -3,11 +3,11 @@ import { twMerge } from "tailwind-merge";
 import { cld } from "@utils/cloudinary";
 import { IComponentProps } from "@custom-types/components";
 
-interface IFeatureBandProps extends IComponentProps {
+interface IFeatureBarProps extends IComponentProps {
   data: IFeatureBar;
 }
 
-export function FeatureBand({ data, className }: IFeatureBandProps) {
+export function FeatureBar({ data, className }: IFeatureBarProps) {
   if (!data || !data.items || !data.isActive) return null;
 
   return (
