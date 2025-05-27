@@ -8,3 +8,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .arrow-right-transition {
+    @apply transition-all duration-300 group-hover:translate-x-1;
+  }
+}

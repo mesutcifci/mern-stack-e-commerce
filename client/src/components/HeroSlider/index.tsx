@@ -76,7 +76,7 @@ export function HeroSlider({ data }: IHeroSliderProps) {
                       {item.buttonText}
                     </span>
                     <ArrowRight
-                      className="transition-all duration-300 group-hover:translate-x-1"
+                      className="arrow-right-transition w-5 h-5 md:w-6 md:h-6"
                       stroke={item.buttonTextColor}
                     />
                   </a>

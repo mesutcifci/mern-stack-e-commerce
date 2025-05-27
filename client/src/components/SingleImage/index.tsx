@@ -33,10 +33,10 @@ export function SingleImage({ data, className }: ISingleImageProps) {
         </div>
         <a
           href={data.link}
-          className="text-base md:text-lg flex items-center border-b w-max"
+          className="text-base md:text-lg flex items-center border-b w-max group"
         >
           <span>{data.linkText}</span>
-          <ArrowRight className="w-5 h-5 md:w-6 md:h-6" />
+          <ArrowRight className="w-5 h-5 md:w-6 md:h-6 arrow-right-transition" />
         </a>
       </div>
 
