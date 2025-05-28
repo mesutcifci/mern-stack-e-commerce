@@ -13,7 +13,6 @@ const footerSubItemSchema = new Schema<IFooterSubItem>({
 	},
 	textColor: {
 		type: String,
-		required: true,
 		default: '#3E3E59',
 	},
 	link: {
@@ -29,7 +28,6 @@ const footerItemSchema = new Schema<IFooterItem>({
 	},
 	textColor: {
 		type: String,
-		required: true,
 		default: '#121212',
 	},
 	link: {
@@ -48,12 +46,17 @@ const footerSchema = new Schema<IFooter>({
 	},
 	backgroundColor: {
 		type: String,
-		required: true,
 		default: '#FAFAFB',
 	},
 	textColor: {
 		type: String,
-		required: true,
+		default: '#605F5F',
+	},
+	description: {
+		type: String,
+	},
+	iconColor: {
+		type: String,
 		default: '#605F5F',
 	},
 });

@@ -1,21 +1,23 @@
-import type { IComponentBase } from './common';
+import type { IComponentBase } from "./common";
 
 export interface IFooterSubItem {
-	text: string;
-	textColor: string;
-	link: string;
+  text: string;
+  textColor?: string;
+  link: string;
 }
 
 export interface IFooterItem {
-	text: string;
-	textColor: string;
-	link?: string;
-	subItems: IFooterSubItem[];
+  text: string;
+  textColor?: string;
+  link?: string;
+  subItems: IFooterSubItem[];
 }
 
 export interface IFooter extends IComponentBase {
-	type: 'footer';
-	items: IFooterItem[];
-	backgroundColor: string;
-	textColor: string;
+  type: "footer";
+  items: IFooterItem[];
+  backgroundColor?: string;
+  textColor?: string;
+  description?: string;
+  iconColor?: string;
 }
