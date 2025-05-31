@@ -4,6 +4,7 @@ import type { IinfoBand } from "./info-band";
 import type { INewsletter } from "./newsletter";
 import type { ISingleImage } from "./single-image";
 import type { ISliderComponent } from "./slider-component";
+import type { IFooter } from "./footer";
 
 export type IComponent =
   | ISliderComponent
@@ -11,7 +12,8 @@ export type IComponent =
   | ISingleImage
   | IinfoBand
   | INewsletter
-  | IFeatureBar;
+  | IFeatureBar
+  | IFooter;
 
 export interface IComponentProps {
   className?: string;
