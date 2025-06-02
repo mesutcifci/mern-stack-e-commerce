@@ -1,3 +1,4 @@
-export interface IiconProps {
-	className?: string;
+export interface IconProps {
+  className?: string;
+  color?: string;
 }

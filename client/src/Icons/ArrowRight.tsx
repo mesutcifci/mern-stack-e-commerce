@@ -1,6 +1,6 @@
-import { IiconProps } from "@custom-types/icons";
+import { IconProps } from "@custom-types/icons";
 
-interface ArrowRightProps extends IiconProps {
+interface ArrowRightProps extends IconProps {
   stroke?: string;
 }
 
