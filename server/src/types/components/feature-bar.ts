@@ -1,14 +1,14 @@
-import type { IComponentBase } from './common';
+import type { ComponentBase } from './common';
 
-export interface IFeatureBarItem {
+export interface FeatureBarItemData {
 	title: string;
 	description: string;
 	icon: string;
 }
 
-export interface IFeatureBar extends IComponentBase {
+export interface FeatureBarData extends ComponentBase {
 	type: 'feature-bar';
-	items: IFeatureBarItem[];
+	items: FeatureBarItemData[];
 	backgroundColor: string;
 	titleColor: string;
 	descriptionColor: string;

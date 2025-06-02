@@ -1,4 +1,4 @@
-import { ISliderComponent } from "@custom-types/components/slider-component";
+import { SliderComponentData } from "@custom-types/components/slider-component";
 import { HeroSliderMedia } from "./HeroSliderMedia";
 import { ArrowRight } from "@icons/ArrowRight";
 import clsx from "clsx";
@@ -7,7 +7,7 @@ import "./styles.css";
 import { IComponentProps } from "@custom-types/components";
 
 interface IHeroSliderProps extends IComponentProps {
-  data: ISliderComponent;
+  data: SliderComponentData;
 }
 
 export function HeroSlider({ data, className }: IHeroSliderProps) {

@@ -1,6 +1,6 @@
-import type { IComponentBase } from './common';
+import type { ComponentBase } from './common';
 
-export interface INewsletter extends IComponentBase {
+export interface NewsletterData extends ComponentBase {
 	type: 'newsletter';
 	title: string;
 	buttonText: string;

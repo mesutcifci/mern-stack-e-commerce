@@ -1,8 +1,8 @@
 import mongoose, { Schema } from 'mongoose';
 import Component from '../componentModel';
-import type { IProductSlider } from '../../types/components/product-slider';
+import type { ProductSliderData } from '../../types/components/product-slider';
 
-const productSliderSchema = new Schema<IProductSlider>({
+const productSliderSchema = new Schema<ProductSliderData>({
 	products: {
 		type: [mongoose.Schema.Types.ObjectId],
 		ref: 'Product',
@@ -10,7 +10,7 @@ const productSliderSchema = new Schema<IProductSlider>({
 	},
 });
 
-export const ProductSlider = Component.discriminator<IProductSlider>(
+export const ProductSlider = Component.discriminator<ProductSliderData>(
 	'product-slider',
 	productSliderSchema
 );

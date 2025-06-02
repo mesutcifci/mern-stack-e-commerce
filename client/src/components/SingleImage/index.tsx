@@ -1,12 +1,12 @@
 import { ResponsiveImage } from "@components/ResponsiveImage";
-import { ISingleImage } from "@custom-types/components/single-image";
+import { SingleImageData } from "@custom-types/components/single-image";
 import { pictureBreakpoints } from "@utils/breakpoints";
 import { twMerge } from "tailwind-merge";
 import { ArrowRight } from "@icons/ArrowRight";
 import { IComponentProps } from "@custom-types/components";
 
 interface ISingleImageProps extends IComponentProps {
-  data: ISingleImage;
+  data: SingleImageData;
 }
 
 export function SingleImage({ data, className }: ISingleImageProps) {

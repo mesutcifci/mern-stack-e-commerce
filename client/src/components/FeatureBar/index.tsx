@@ -1,13 +1,13 @@
-import { IFeatureBar } from "@custom-types/components/feature-bar";
+import { FeatureBarData } from "@custom-types/components/feature-bar";
 import { twMerge } from "tailwind-merge";
 import { cld } from "@utils/cloudinary";
 import { IComponentProps } from "@custom-types/components";
 
-interface IFeatureBarProps extends IComponentProps {
-  data: IFeatureBar;
+interface FeatureBarProps extends IComponentProps {
+  data: FeatureBarData;
 }
 
-export function FeatureBar({ data, className }: IFeatureBarProps) {
+export function FeatureBar({ data, className }: FeatureBarProps) {
   if (!data || !data.items || !data.isActive) return null;
 
   return (

@@ -1,8 +1,8 @@
 import Component from '../componentModel';
-import type { ISingleImage } from '../../types/components/single-image';
+import type { SingleImageData } from '../../types/components/single-image';
 import { Schema } from 'mongoose';
 
-const singleImageSchema = new Schema<ISingleImage>({
+const singleImageSchema = new Schema<SingleImageData>({
 	mobileImage: {
 		type: String,
 		required: true,
@@ -28,7 +28,7 @@ const singleImageSchema = new Schema<ISingleImage>({
 		required: true,
 	},
 });
-export const SingleImage = Component.discriminator<ISingleImage>(
+export const SingleImage = Component.discriminator<SingleImageData>(
 	'single-image',
 	singleImageSchema
 );

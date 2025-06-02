@@ -1,14 +1,14 @@
-import type { IComponentBase } from './common';
+import type { ComponentBase } from './common';
 
-export interface IinfoBandItem {
+export interface InfoBandItemData {
 	text: string;
 	textColor?: string;
 	backgroundColor?: string;
 	link?: string;
 }
 
-export interface IinfoBand extends IComponentBase {
+export interface InfoBandData extends ComponentBase {
 	type: 'info-band';
-	items: IinfoBandItem[];
+	items: InfoBandItemData[];
 	autoplay: boolean;
 }

@@ -1,9 +1,9 @@
-import { IinfoBand } from "@custom-types/components/info-band";
+import { InfoBandData } from "@custom-types/components/info-band";
 import { twMerge } from "tailwind-merge";
 import { IComponentProps } from "@custom-types/components";
 
 interface IinfoBandProps extends IComponentProps {
-  data: IinfoBand;
+  data: InfoBandData;
 }
 
 export function InfoBand({ data, className }: IinfoBandProps) {

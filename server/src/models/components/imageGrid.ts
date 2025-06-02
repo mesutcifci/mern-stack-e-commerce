@@ -1,11 +1,11 @@
 import { Schema } from 'mongoose';
 import Component from '../componentModel';
 import type {
-	IimageGrid,
-	IimageGridItem,
+	ImageGridData,
+	ImageGridItemData,
 } from '../../types/components/image-grid';
 
-const imageGridItemSchema = new Schema<IimageGridItem>({
+const imageGridItemSchema = new Schema<ImageGridItemData>({
 	mobileImage: {
 		type: String,
 		required: true,
@@ -32,7 +32,7 @@ const imageGridItemSchema = new Schema<IimageGridItem>({
 	},
 });
 
-const imageGridSchema = new Schema<IimageGrid>({
+const imageGridSchema = new Schema<ImageGridData>({
 	items: {
 		full_image: {
 			type: imageGridItemSchema,
@@ -49,7 +49,7 @@ const imageGridSchema = new Schema<IimageGrid>({
 	},
 });
 
-export const ImageGrid = Component.discriminator<IimageGrid>(
+export const ImageGrid = Component.discriminator<ImageGridData>(
 	'image-grid',
 	imageGridSchema
 );

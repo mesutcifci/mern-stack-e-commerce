@@ -1,11 +1,11 @@
 import { Schema } from 'mongoose';
 import Component from '../componentModel';
 import type {
-	IFeatureBar,
-	IFeatureBarItem,
+	FeatureBarData,
+	FeatureBarItemData,
 } from '../../types/components/feature-bar';
 
-const featureBarItemSchema = new Schema<IFeatureBarItem>({
+const featureBarItemSchema = new Schema<FeatureBarItemData>({
 	title: {
 		type: String,
 		required: true,
@@ -20,7 +20,7 @@ const featureBarItemSchema = new Schema<IFeatureBarItem>({
 	},
 });
 
-const featureBarSchema = new Schema<IFeatureBar>({
+const featureBarSchema = new Schema<FeatureBarData>({
 	titleColor: {
 		type: String,
 		required: true,
@@ -42,7 +42,7 @@ const featureBarSchema = new Schema<IFeatureBar>({
 	},
 });
 
-export const FeatureBar = Component.discriminator<IFeatureBar>(
+export const FeatureBar = Component.discriminator<FeatureBarData>(
 	'feature-bar',
 	featureBarSchema
 );

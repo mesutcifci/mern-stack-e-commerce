@@ -1,6 +1,6 @@
-import type { IComponentBase } from './common';
+import type { ComponentBase } from './common';
 
-export interface IimageGridItem {
+export interface ImageGridItemData {
 	mobileImage: string;
 	desktopImage: string;
 	title: string;
@@ -9,11 +9,11 @@ export interface IimageGridItem {
 	link: string;
 }
 
-export interface IimageGrid extends IComponentBase {
+export interface ImageGridData extends ComponentBase {
 	type: 'image-grid';
 	items: {
-		full_image: IimageGridItem;
-		half_image_first: IimageGridItem;
-		half_image_second: IimageGridItem;
+		full_image: ImageGridItemData;
+		half_image_first: ImageGridItemData;
+		half_image_second: ImageGridItemData;
 	};
 }

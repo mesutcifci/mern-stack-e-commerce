@@ -1,9 +1,9 @@
 import { ResponsiveImage } from "@components/ResponsiveImage";
-import { ISliderItem } from "@custom-types/components/slider-component";
+import { SliderItemData } from "@custom-types/components/slider-component";
 import { pictureBreakpoints } from "@utils/breakpoints";
 
 interface IHeroSliderMediaProps {
-  item: ISliderItem;
+  item: SliderItemData;
 }
 
 export function HeroSliderMedia({ item }: IHeroSliderMediaProps) {

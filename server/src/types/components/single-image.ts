@@ -1,6 +1,6 @@
-import type { IComponentBase } from './common';
+import type { ComponentBase } from './common';
 
-export interface ISingleImage extends IComponentBase {
+export interface SingleImageData extends ComponentBase {
 	type: 'single-image';
 	mobileImage: string;
 	desktopImage: string;

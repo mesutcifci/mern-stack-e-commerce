@@ -2,11 +2,11 @@ import { Schema } from 'mongoose';
 import Component from '../componentModel';
 import type {
 	IFooter,
-	IFooterItem,
-	IFooterSubItem,
+	FooterItemData,
+	FooterSubItemData,
 } from '../../types/components/footer';
 
-const footerSubItemSchema = new Schema<IFooterSubItem>({
+const footerSubItemSchema = new Schema<FooterSubItemData>({
 	text: {
 		type: String,
 		required: true,
@@ -21,7 +21,7 @@ const footerSubItemSchema = new Schema<IFooterSubItem>({
 	},
 });
 
-const footerItemSchema = new Schema<IFooterItem>({
+const footerItemSchema = new Schema<FooterItemData>({
 	text: {
 		type: String,
 		required: true,

@@ -1,18 +1,18 @@
-import type { IFeatureBar } from "./feature-bar";
-import type { IimageGrid } from "./image-grid";
-import type { IinfoBand } from "./info-band";
-import type { INewsletter } from "./newsletter";
-import type { ISingleImage } from "./single-image";
-import type { ISliderComponent } from "./slider-component";
+import type { FeatureBarData } from "./feature-bar";
+import type { ImageGridData } from "./image-grid";
+import type { InfoBandData } from "./info-band";
+import type { NewsletterData } from "./newsletter";
+import type { SingleImageData } from "./single-image";
+import type { SliderComponentData } from "./slider-component";
 import type { IFooter } from "./footer";
 
 export type IComponent =
-  | ISliderComponent
-  | IimageGrid
-  | ISingleImage
-  | IinfoBand
-  | INewsletter
-  | IFeatureBar
+  | SliderComponentData
+  | ImageGridData
+  | SingleImageData
+  | InfoBandData
+  | NewsletterData
+  | FeatureBarData
   | IFooter;
 
 export interface IComponentProps {

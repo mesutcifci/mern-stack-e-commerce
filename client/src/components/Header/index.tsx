@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { Navigation } from "@components/Navigation";
 import { InfoBand } from "@components/InfoBand";
 import { useComponentData } from "@hooks/useComponentData";
-import { IinfoBand } from "@custom-types/components/info-band";
+import { InfoBandData } from "@custom-types/components/info-band";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   // Fetch InfoBand data
-  const { data: infoBandData } = useComponentData<IinfoBand>({
+  const { data: infoBandData } = useComponentData<InfoBandData>({
     endpoint: "/components/info-band",
   });
 

@@ -1,8 +1,8 @@
 import Component from '../componentModel';
-import type { INewsletter } from '../../types/components/newsletter';
+import type { NewsletterData } from '../../types/components/newsletter';
 import { Schema } from 'mongoose';
 
-const newsletterSchema = new Schema<INewsletter>({
+const newsletterSchema = new Schema<NewsletterData>({
 	title: {
 		type: String,
 		required: true,
@@ -25,7 +25,7 @@ const newsletterSchema = new Schema<INewsletter>({
 	},
 });
 
-export const Newsletter = Component.discriminator<INewsletter>(
+export const Newsletter = Component.discriminator<NewsletterData>(
 	'newsletter',
 	newsletterSchema
 );

@@ -3,7 +3,7 @@ export interface IComponentPage {
 	order: number;
 }
 
-export interface IComponentBase {
+export interface ComponentBase {
 	name: string;
 	slug: string;
 	isActive: boolean;

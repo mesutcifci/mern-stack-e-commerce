@@ -1,6 +1,6 @@
-import type { IComponentBase } from "./common";
+import type { ComponentBase } from "./common";
 
-export interface ISliderMedia {
+export interface SliderMediaData {
   mobileMedia: {
     type: "image" | "video";
     url: string;
@@ -11,8 +11,8 @@ export interface ISliderMedia {
   };
 }
 
-export interface ISliderItem {
-  media: ISliderMedia;
+export interface SliderItemData {
+  media: SliderMediaData;
   title?: string;
   description?: string;
   buttonText?: string;
@@ -23,8 +23,8 @@ export interface ISliderItem {
   _id: string;
 }
 
-export interface ISliderComponent extends IComponentBase {
+export interface SliderComponentData extends ComponentBase {
   type: "slider-component";
-  items: ISliderItem[];
+  items: SliderItemData[];
   autoplay: boolean;
 }

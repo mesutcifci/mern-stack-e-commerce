@@ -1,12 +1,12 @@
 import { Schema } from 'mongoose';
 import Component from '../componentModel';
 import type {
-	ISliderComponent,
-	ISliderItem,
-	ISliderMedia,
+	SliderComponentData,
+	SliderItemData,
+	SliderMediaData,
 } from '../../types/components/slider-component';
 
-const sliderMediaSchema = new Schema<ISliderMedia>({
+const sliderMediaSchema = new Schema<SliderMediaData>({
 	mobileMedia: {
 		type: {
 			type: String,
@@ -31,7 +31,7 @@ const sliderMediaSchema = new Schema<ISliderMedia>({
 	},
 });
 
-const sliderItemSchema = new Schema<ISliderItem>({
+const sliderItemSchema = new Schema<SliderItemData>({
 	media: {
 		type: sliderMediaSchema,
 		required: true,
@@ -45,7 +45,7 @@ const sliderItemSchema = new Schema<ISliderItem>({
 	buttonTextColor: String,
 });
 
-const sliderComponentSchema = new Schema<ISliderComponent>({
+const sliderComponentSchema = new Schema<SliderComponentData>({
 	items: {
 		type: [sliderItemSchema],
 		required: true,
@@ -56,7 +56,7 @@ const sliderComponentSchema = new Schema<ISliderComponent>({
 	},
 });
 
-export const SliderComponent = Component.discriminator<ISliderComponent>(
+export const SliderComponent = Component.discriminator<SliderComponentData>(
 	'slider-component',
 	sliderComponentSchema
 );

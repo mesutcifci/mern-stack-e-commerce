@@ -1,11 +1,11 @@
 import { ResponsiveImage } from "@components/ResponsiveImage";
-import { IimageGrid } from "@custom-types/components/image-grid";
+import { ImageGridData } from "@custom-types/components/image-grid";
 import { pictureBreakpoints } from "@utils/breakpoints";
 import { twMerge } from "tailwind-merge";
 import { IComponentProps } from "@custom-types/components";
 
 interface IImageGridProps extends IComponentProps {
-  data: IimageGrid;
+  data: ImageGridData;
 }
 
 export function ImageGrid({ data, className }: IImageGridProps) {
