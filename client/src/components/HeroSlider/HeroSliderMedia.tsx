@@ -1,6 +1,6 @@
 import { ResponsiveImage } from "@components/ResponsiveImage";
 import { SliderItemData } from "@custom-types/components/slider-component";
-import { pictureBreakpoints } from "@utils/breakpoints";
+import { screens } from "@utils/breakpoints";
 
 interface IHeroSliderMediaProps {
   item: SliderItemData;
@@ -16,22 +16,22 @@ export function HeroSliderMedia({ item }: IHeroSliderMediaProps) {
     const sources = [
       {
         size: { width: 2560, height: 1422 },
-        breakpoint: pictureBreakpoints.xl,
+        breakpoint: screens.xl,
         url: desktopMediaSlug,
       },
       {
         size: { width: 1440, height: 800 },
-        breakpoint: pictureBreakpoints.lg,
+        breakpoint: screens.lg,
         url: desktopMediaSlug,
       },
       {
         size: { width: 1024, height: 1196 },
-        breakpoint: pictureBreakpoints.md,
+        breakpoint: screens.md,
         url: mobileMediaSlug,
       },
       {
         size: { width: 768, height: 897 },
-        breakpoint: pictureBreakpoints.xs,
+        breakpoint: screens.xs,
         url: mobileMediaSlug,
       },
     ];

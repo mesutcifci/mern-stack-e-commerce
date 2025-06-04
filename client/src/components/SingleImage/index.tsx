@@ -1,6 +1,6 @@
 import { ResponsiveImage } from "@components/ResponsiveImage";
 import { SingleImageData } from "@custom-types/components/single-image";
-import { pictureBreakpoints } from "@utils/breakpoints";
+import { screens } from "@utils/breakpoints";
 import { twMerge } from "tailwind-merge";
 import { ArrowRight } from "@icons/ArrowRight";
 import { IComponentProps } from "@custom-types/components";
@@ -44,17 +44,17 @@ export function SingleImage({ data, className }: ISingleImageProps) {
         sources={[
           {
             size: { width: 1440, height: 532 },
-            breakpoint: pictureBreakpoints.lg,
+            breakpoint: screens.lg,
             url: data.desktopImage,
           },
           {
             size: { width: 1024, height: 715 },
-            breakpoint: pictureBreakpoints.md,
+            breakpoint: screens.md,
             url: data.mobileImage,
           },
           {
             size: { width: 768, height: 536 },
-            breakpoint: pictureBreakpoints.xs,
+            breakpoint: screens.xs,
             url: data.mobileImage,
           },
         ]}

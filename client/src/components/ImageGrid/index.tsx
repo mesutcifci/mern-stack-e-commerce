@@ -1,6 +1,6 @@
 import { ResponsiveImage } from "@components/ResponsiveImage";
 import { ImageGridData } from "@custom-types/components/image-grid";
-import { pictureBreakpoints } from "@utils/breakpoints";
+import { screens } from "@utils/breakpoints";
 import { twMerge } from "tailwind-merge";
 import { IComponentProps } from "@custom-types/components";
 
@@ -42,12 +42,12 @@ export function ImageGrid({ data, className }: IImageGridProps) {
           sources={[
             {
               size: { width: 652, height: 790 },
-              breakpoint: pictureBreakpoints.md,
+              breakpoint: screens.md,
               url: data.items.full_image.desktopImage,
             },
             {
               size: { width: 768, height: 1024 },
-              breakpoint: pictureBreakpoints.xs,
+              breakpoint: screens.xs,
               url: data.items.full_image.mobileImage,
             },
           ]}
@@ -86,12 +86,12 @@ export function ImageGrid({ data, className }: IImageGridProps) {
             sources={[
               {
                 size: { width: 652, height: 379 },
-                breakpoint: pictureBreakpoints.md,
+                breakpoint: screens.md,
                 url: data.items.half_image_first.desktopImage,
               },
               {
                 size: { width: 768, height: 488 },
-                breakpoint: pictureBreakpoints.xs,
+                breakpoint: screens.xs,
                 url: data.items.half_image_first.mobileImage,
               },
             ]}
@@ -129,12 +129,12 @@ export function ImageGrid({ data, className }: IImageGridProps) {
             sources={[
               {
                 size: { width: 652, height: 379 },
-                breakpoint: pictureBreakpoints.md,
+                breakpoint: screens.md,
                 url: data.items.half_image_second.desktopImage,
               },
               {
                 size: { width: 768, height: 488 },
-                breakpoint: pictureBreakpoints.xs,
+                breakpoint: screens.xs,
                 url: data.items.half_image_second.mobileImage,
               },
             ]}
