@@ -11,6 +11,7 @@ export default {
         mesblack: "#121212",
         mesgray: "#F5F5F5",
         lifblue: "#3E3E59",
+        "fake-jade": "#CBCBCB",
       },
       screens: {
         xs: "375px",
