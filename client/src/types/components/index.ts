@@ -5,6 +5,7 @@ import type { NewsletterData } from "./newsletter";
 import type { SingleImageData } from "./single-image";
 import type { SliderComponentData } from "./slider-component";
 import type { IFooter } from "./footer";
+import { ProductSliderData } from "./product-slider";
 
 export type IComponent =
   | SliderComponentData
@@ -13,7 +14,8 @@ export type IComponent =
   | InfoBandData
   | NewsletterData
   | FeatureBarData
-  | IFooter;
+  | IFooter
+  | ProductSliderData;
 
 export interface IComponentProps {
   className?: string;

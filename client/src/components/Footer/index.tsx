@@ -17,8 +17,6 @@ export function Footer({ className }: IFooterProps) {
 
   if (!data) return null;
 
-  console.log("data: ", data);
-
   return (
     <footer
       className={twMerge(

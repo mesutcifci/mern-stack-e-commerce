@@ -3,6 +3,7 @@ import catchAsyncErrors from '../helpers/catchAsyncErrors';
 import AppError from '../helpers/appError';
 
 import type { Model, UpdateQuery } from 'mongoose';
+import { type IComponent } from '../types/component';
 import Component from '../models/componentModel';
 import { SliderComponent } from '../models/components/sliderComponent';
 import { ProductSlider } from '../models/components/productSlider';
@@ -42,6 +43,20 @@ export const getComponentBySlug = catchAsyncErrors(
 	}
 );
 
+const populateProductSliders = async (
+	components: IComponent[]
+): Promise<void> => {
+	const productSliders = components.filter((c) => c.type === 'product-slider');
+
+	if (productSliders.length > 0) {
+		await Component.populate(productSliders, {
+			path: 'products',
+			select:
+				'name slug price discountPrice currency images ratingsAverage ratingsQuantity description isActive',
+		});
+	}
+};
+
 export const getComponentsByPage = catchAsyncErrors(
 	async (req: Request, res: Response, next: NextFunction) => {
 		const { pageName } = req.params;
@@ -51,10 +66,12 @@ export const getComponentsByPage = catchAsyncErrors(
 			return;
 		}
 
-		const components = await Component.find({
+		const components: IComponent[] = await Component.find({
 			'page.name': pageName,
 			isActive: true,
 		}).sort({ 'page.order': 1 });
+
+		await populateProductSliders(components);
 
 		res.status(200).json({
 			status: 'success',

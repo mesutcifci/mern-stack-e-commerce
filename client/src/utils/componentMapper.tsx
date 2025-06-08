@@ -3,6 +3,7 @@ import { HeroSlider } from "@components/HeroSlider";
 import { ImageGrid } from "@components/ImageGrid";
 import { SingleImage } from "@components/SingleImage";
 import { FeatureBar } from "@components/FeatureBar";
+import ProductSlider from "@components/ProductSlider";
 
 // TODO: use a readable map approach for components, instead of switch case
 export const ComponentRenderer = ({ data }: { data: IComponent }) => {
@@ -15,6 +16,8 @@ export const ComponentRenderer = ({ data }: { data: IComponent }) => {
       return <SingleImage data={data} />;
     case "feature-bar":
       return <FeatureBar data={data} />;
+    case "product-slider":
+      return <ProductSlider data={data} />;
     default:
       return null;
   }

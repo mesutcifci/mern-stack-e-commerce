@@ -8,6 +8,10 @@ const productSliderSchema = new Schema<ProductSliderData>({
 		ref: 'Product',
 		required: true,
 	},
+	title: {
+		type: String,
+		required: true,
+	},
 });
 
 export const ProductSlider = Component.discriminator<ProductSliderData>(
