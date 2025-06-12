@@ -18,7 +18,7 @@ interface Fallback {
 }
 
 interface ResponsiveImageProps {
-  sources: Source[];
+  sources?: Source[];
   fallback: Fallback;
   alt?: string;
   className?: string;
@@ -36,7 +36,7 @@ export function ResponsiveImage({
 }: ResponsiveImageProps) {
   return (
     <picture className={className}>
-      {sources.map((source, index) => (
+      {sources?.map((source, index) => (
         <source
           key={index}
           srcSet={buildImageUrl({
