@@ -12,6 +12,7 @@ export default {
         mesgray: "#F5F5F5",
         lifblue: "#3E3E59",
         "fake-jade": "#CBCBCB",
+        "moon-landing": "#A7A7A7",
       },
       screens: {
         xs: "375px",

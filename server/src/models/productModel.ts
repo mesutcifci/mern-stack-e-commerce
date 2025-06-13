@@ -23,11 +23,12 @@ const productSchema = new mongoose.Schema<IProduct>(
 		},
 		discountPrice: {
 			type: Number,
+			default: 0,
 			validate: {
 				validator: function (value: number) {
-					return value < (this as IProduct).price;
+					return value < (this as any).price;
 				},
-				message: "Disocunt price can't bigger than original value",
+				message: "Disocunt price can't bigger than original price",
 			},
 		},
 		currency: {

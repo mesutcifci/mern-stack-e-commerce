@@ -4,7 +4,7 @@ export interface IProduct extends Document {
 	name: string;
 	slug: string;
 	price: number;
-	discountPrice?: number;
+	discountPrice: number;
 	currency: string;
 	stock: number;
 	ratingsAverage: number;
