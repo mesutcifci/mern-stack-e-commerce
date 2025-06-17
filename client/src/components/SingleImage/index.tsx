@@ -13,7 +13,7 @@ export function SingleImage({ data, className }: ISingleImageProps) {
   if (!data || !data.isActive) return null;
 
   return (
-    <div className={twMerge("relative border border-red-500", className)}>
+    <div className={twMerge("relative", className)}>
       <div
         className={twMerge(
           "absolute top-8 px-4 md:px-8 z-10 md:top-1/2 md:-translate-y-1/2 flex flex-col gap-y-4",
