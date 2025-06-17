@@ -38,6 +38,7 @@ export default {
         "mega-menu": "45",
         "hero-slider": "10",
         overlay: "100",
+        "product-slider-buttons": "10",
       },
     },
   },

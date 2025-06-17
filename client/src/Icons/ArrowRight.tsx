@@ -1,13 +1,6 @@
 import { IconProps } from "@custom-types/icons";
 
-interface ArrowRightProps extends IconProps {
-  stroke?: string;
-}
-
-export function ArrowRight({
-  className = "",
-  stroke = "#121212",
-}: ArrowRightProps) {
+export function ArrowRight({ className = "", stroke = "#121212" }: IconProps) {
   return (
     <svg
       className={className}
