@@ -49,7 +49,7 @@ export default function ProductSlider({
 
   return (
     <div className={twMerge("", className)}>
-      <h3 className="text-2xl font-medium font-spaceGrotesk mb-5">
+      <h3 className="text-2xl font-medium font-spaceGrotesk mb-5 text-center lg:text-left">
         {data.title}
       </h3>
       <div className="relative group">

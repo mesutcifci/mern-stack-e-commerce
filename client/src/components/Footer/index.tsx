@@ -5,6 +5,7 @@ import logo from "@assets/images/logo.svg";
 import { useComponentData } from "@hooks/useComponentData";
 import { FooterSocial } from "./FooterSocial";
 import { Accordion } from "@components/Accordion";
+import { HOME_PAGE_SPACINGS } from "@utils/spacings";
 
 interface IFooterProps extends IComponentProps {
   className?: string;
@@ -22,11 +23,18 @@ export function Footer({ className }: IFooterProps) {
       className={twMerge(
         "flex flex-col items-center gap-y-6 lg:gap-x-6 lg:flex-row lg:justify-between bg-[var(--background-color)]",
         "py-12 xl:py-[4.5rem]",
+        "px-[var(--left-xs)] lg:px-[var(--left-lg)] 2xl:px-[var(--left-2xl)] pr-[var(--right-xs)] lg:pr-[var(--right-lg)] 2xl:pr-[var(--right-2xl)]",
         className
       )}
       style={
         {
           "--background-color": data.backgroundColor,
+          "--left-xs": `${HOME_PAGE_SPACINGS.leftXs}px`,
+          "--right-xs": `${HOME_PAGE_SPACINGS.rightXs}px`,
+          "--left-lg": `${HOME_PAGE_SPACINGS.leftLg}px`,
+          "--right-lg": `${HOME_PAGE_SPACINGS.rightLg}px`,
+          "--left-xl": `${HOME_PAGE_SPACINGS.left2Xl}px`,
+          "--right-xl": `${HOME_PAGE_SPACINGS.right2Xl}px`,
         } as React.CSSProperties
       }
     >

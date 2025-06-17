@@ -17,6 +17,7 @@ import HamburgerMenu from "@components/HamburgerMenu";
 import { AdvancedImage } from "@cloudinary/react";
 import { Resize } from "@cloudinary/url-gen/actions";
 import { cld } from "@utils/cloudinary";
+import { HOME_PAGE_SPACINGS } from "@utils/spacings";
 
 interface NavigationProps {
   isScrolled: boolean;
@@ -74,8 +75,18 @@ export function Navigation({ isScrolled }: NavigationProps) {
     >
       <div
         className={twMerge(
-          "flex justify-between items-center px-4 lg:px-8 2xl:px-14 py-3 lg:pb-0 lg:items-stretch"
+          "flex justify-between items-center py-3 lg:pb-0 lg:items-stretch px-[var(--left-xs)] lg:px-[var(--left-lg)] 2xl:px-[var(--left-2xl)] pr-[var(--right-xs)] lg:pr-[var(--right-lg)] 2xl:pr-[var(--right-2xl)]"
         )}
+        style={
+          {
+            "--left-xs": `${HOME_PAGE_SPACINGS.leftXs}px`,
+            "--left-lg": `${HOME_PAGE_SPACINGS.leftLg}px`,
+            "--left-xl": `${HOME_PAGE_SPACINGS.left2Xl}px`,
+            "--right-xs": `${HOME_PAGE_SPACINGS.rightXs}px`,
+            "--right-lg": `${HOME_PAGE_SPACINGS.rightLg}px`,
+            "--right-xl": `${HOME_PAGE_SPACINGS.right2Xl}px`,
+          } as React.CSSProperties
+        }
       >
         <div className={twMerge("flex items-center gap-x-3 lg:pb-4")}>
           <img
