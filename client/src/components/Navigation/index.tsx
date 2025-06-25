@@ -18,6 +18,7 @@ import { AdvancedImage } from "@cloudinary/react";
 import { Resize } from "@cloudinary/url-gen/actions";
 import { cld } from "@utils/cloudinary";
 import { HOME_PAGE_SPACINGS } from "@utils/spacings";
+import { URL_PREFIXES } from "@utils/urlPrefixes";
 
 interface NavigationProps {
   isScrolled: boolean;
@@ -115,7 +116,8 @@ export function Navigation({ isScrolled }: NavigationProps) {
               onMouseLeave={handleCategoryLeave}
               className={twMerge("pr-6 last:pr-0 pb-2")}
             >
-              <span
+              <a
+                href={`${URL_PREFIXES.category}/${category.slug}`}
                 className={twMerge(
                   clsx("cursor-pointer text-xl xl:text-2xl text-mesblack", {
                     "text-lifblue": activeCategory === category.id,
@@ -123,7 +125,7 @@ export function Navigation({ isScrolled }: NavigationProps) {
                 )}
               >
                 {category.name}
-              </span>
+              </a>
 
               {/* Mega Menu */}
               {activeCategory === category.id && (
@@ -149,7 +151,7 @@ export function Navigation({ isScrolled }: NavigationProps) {
                           className={twMerge("gap-y-2 flex flex-col")}
                         >
                           <a
-                            href={`/${subCategory.slug}`}
+                            href={`${URL_PREFIXES.category}/${subCategory.slug}`}
                             className={twMerge(
                               "text-mesblack text-base xl:text-lg font-medium hover:text-lifblue"
                             )}
@@ -160,7 +162,7 @@ export function Navigation({ isScrolled }: NavigationProps) {
                             {subCategory.children?.map((item) => (
                               <li key={item.id}>
                                 <a
-                                  href={`/${item.slug}`}
+                                  href={`${URL_PREFIXES.category}/${item.slug}`}
                                   className={twMerge(
                                     "text-mesblack hover:text-lifblue font-normal text-sm xl:text-base"
                                   )}

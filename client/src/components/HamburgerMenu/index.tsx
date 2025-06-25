@@ -14,6 +14,7 @@ import x from "@assets/images/x.svg";
 import instagram from "@assets/images/instagram.svg";
 import facebook from "@assets/images/facebook.svg";
 import email from "@assets/images/email.svg";
+import { URL_PREFIXES } from "@utils/urlPrefixes";
 
 interface HamburgerMenuProps {
   categories: Category[];
@@ -95,6 +96,8 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
     if (category.children.length > 0) {
       setDirection("forward");
       setPath([...path, category]);
+    } else {
+      window.location.href = `${URL_PREFIXES.category}/${category.slug}`;
     }
   };
 
@@ -162,9 +165,15 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
                       className="flex justify-between items-center cursor-pointer rounded"
                       onClick={() => navigateToCategory(category)}
                     >
-                      <span className="text-xl text-mesblack">
+                      <a
+                        href={`${URL_PREFIXES.category}/${category.slug}`}
+                        className="text-xl text-mesblack"
+                        onClick={(event) => {
+                          event.preventDefault();
+                        }}
+                      >
                         {category.name}
-                      </span>
+                      </a>
                       {category.children.length > 0 && (
                         <img
                           src={chevronRight}
