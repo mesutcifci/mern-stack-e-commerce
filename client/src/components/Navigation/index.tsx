@@ -69,7 +69,6 @@ export function Navigation({ isScrolled }: NavigationProps) {
     <nav
       className={twMerge(
         clsx("w-full relative", {
-          "transition-all duration-300": isScrolled && !activeCategory,
           "bg-white": isScrolled || activeCategory,
         })
       )}
