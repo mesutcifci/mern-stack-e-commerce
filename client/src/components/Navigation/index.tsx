@@ -82,10 +82,10 @@ export function Navigation({ isScrolled }: NavigationProps) {
           {
             "--left-xs": `${HOME_PAGE_SPACINGS.leftXs}px`,
             "--left-lg": `${HOME_PAGE_SPACINGS.leftLg}px`,
-            "--left-xl": `${HOME_PAGE_SPACINGS.left2Xl}px`,
+            "--left-xl": `${HOME_PAGE_SPACINGS.leftXl}px`,
             "--right-xs": `${HOME_PAGE_SPACINGS.rightXs}px`,
             "--right-lg": `${HOME_PAGE_SPACINGS.rightLg}px`,
-            "--right-xl": `${HOME_PAGE_SPACINGS.right2Xl}px`,
+            "--right-xl": `${HOME_PAGE_SPACINGS.rightXl}px`,
           } as React.CSSProperties
         }
       >
@@ -97,14 +97,16 @@ export function Navigation({ isScrolled }: NavigationProps) {
             className={twMerge("cursor-pointer lg:hidden")}
             onClick={openMenu}
           />
-          <img
-            src={logo}
-            width={114}
-            height={22}
-            className={twMerge(
-              "lg:w-[9.6875rem] lg:h-[1.875rem] cursor-pointer"
-            )}
-          />
+          <a href="/">
+            <img
+              src={logo}
+              width={114}
+              height={22}
+              className={twMerge(
+                "lg:w-[9.6875rem] lg:h-[1.875rem] cursor-pointer"
+              )}
+            />
+          </a>
         </div>
 
         {/* Categories */}
@@ -117,7 +119,7 @@ export function Navigation({ isScrolled }: NavigationProps) {
               className={twMerge("pr-6 last:pr-0 pb-2")}
             >
               <a
-                href={`${URL_PREFIXES.category}/${category.slug}`}
+                href={`/${URL_PREFIXES.category}/${category.slug}`}
                 className={twMerge(
                   clsx("cursor-pointer text-xl xl:text-2xl text-mesblack", {
                     "text-lifblue": activeCategory === category.id,
@@ -151,7 +153,7 @@ export function Navigation({ isScrolled }: NavigationProps) {
                           className={twMerge("gap-y-2 flex flex-col")}
                         >
                           <a
-                            href={`${URL_PREFIXES.category}/${subCategory.slug}`}
+                            href={`/${URL_PREFIXES.category}/${subCategory.slug}`}
                             className={twMerge(
                               "text-mesblack text-base xl:text-lg font-medium hover:text-lifblue"
                             )}
@@ -162,7 +164,7 @@ export function Navigation({ isScrolled }: NavigationProps) {
                             {subCategory.children?.map((item) => (
                               <li key={item.id}>
                                 <a
-                                  href={`${URL_PREFIXES.category}/${item.slug}`}
+                                  href={`/${URL_PREFIXES.category}/${item.slug}`}
                                   className={twMerge(
                                     "text-mesblack hover:text-lifblue font-normal text-sm xl:text-base"
                                   )}

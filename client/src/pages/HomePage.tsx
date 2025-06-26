@@ -29,8 +29,8 @@ const HomePage = () => {
           "--right-xs": `${HOME_PAGE_SPACINGS.rightXs}px`,
           "--left-lg": `${HOME_PAGE_SPACINGS.leftLg}px`,
           "--right-lg": `${HOME_PAGE_SPACINGS.rightLg}px`,
-          "--left-xl": `${HOME_PAGE_SPACINGS.left2Xl}px`,
-          "--right-xl": `${HOME_PAGE_SPACINGS.right2Xl}px`,
+          "--left-xl": `${HOME_PAGE_SPACINGS.leftXl}px`,
+          "--right-xl": `${HOME_PAGE_SPACINGS.rightXl}px`,
         } as React.CSSProperties
       }
     >

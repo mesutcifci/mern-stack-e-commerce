@@ -97,7 +97,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
       setDirection("forward");
       setPath([...path, category]);
     } else {
-      window.location.href = `${URL_PREFIXES.category}/${category.slug}`;
+      window.location.href = `/${URL_PREFIXES.category}/${category.slug}`;
     }
   };
 
@@ -166,7 +166,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
                       onClick={() => navigateToCategory(category)}
                     >
                       <a
-                        href={`${URL_PREFIXES.category}/${category.slug}`}
+                        href={`/${URL_PREFIXES.category}/${category.slug}`}
                         className="text-xl text-mesblack"
                         onClick={(event) => {
                           event.preventDefault();
