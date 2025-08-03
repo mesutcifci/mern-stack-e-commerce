@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router";
 import { fetchApi } from "@api/api";
 import { ProductData } from "@custom-types/product";
+import ProductCard from "@components/ProductCard";
 
 function getQueryString(search: string) {
   return search ? search : "";
@@ -20,10 +21,10 @@ export default function List() {
     setError(null);
     const queryString = getQueryString(location.search);
     fetchApi(`/products/category/${category}/${queryString}`)
-      .then((res: { data: never }) => {
-        setProducts(res.data || []);
+      .then((res: { data: { products: ProductData[] } }) => {
+        setProducts(res.data.products || []);
       })
-      .catch((err: { message: never }) => {
+      .catch((err: { message: string }) => {
         setError(err.message || "Failed to fetch products");
       })
       .finally(() => setLoading(false));
@@ -34,8 +35,15 @@ export default function List() {
 
   return (
     <div>
-      <h2>Products in category: {category}</h2>
-      {products.length === 0 ? <div>No products found.</div> : <ul></ul>}
+      {products.length === 0 ? (
+        <div>No products found.</div>
+      ) : (
+        <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8">
+          {products.map((product) => (
+            <ProductCard key={product._id} product={product} />
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
